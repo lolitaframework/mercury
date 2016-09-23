@@ -1,0 +1,37 @@
+$element-separator: "__" !default;
+$modifier-separator: "--" !default;
+@mixin b($name) {
+    .#{$name} {
+        @content;
+    }
+}
+
+@mixin e($name) {  
+    $selector: #{&};  
+
+    @if (length(&) == 1) and 
+    (str-index($selector, $element-separator) == null) and 
+    (str-index($selector, $modifier-separator) != null) {
+
+      $block: str-slice($selector, 1, str-index($selector, $modifier-separator) - 1);
+
+      & #{$block}#{$element-separator}#{$name} {
+          @content;
+      }      
+    }
+    @else {
+        @at-root {
+            &#{$element-separator}#{$name} {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin m($name) {
+    @at-root {
+        &#{$modifier-separator}#{$name} {
+            @content;
+        }
+    }
+}

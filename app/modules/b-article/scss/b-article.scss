@@ -1,0 +1,74 @@
+@import "../../../base/core/mixins";
+//
+//*****************************************************************************
+// b-article
+// components: c-text, c-breadcrumbs, c-tags, c-share-on, b-slider
+//*****************************************************************************
+//
+//
+@include block(b-article) {
+    margin-bottom: 30px;
+    @include element(bottom) {
+        padding: 20px 20px 0 20px;
+    }
+    @include element(title) {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 33px;
+        color: #000000;
+        letter-spacing: -0.23px;
+        margin-top: 0;
+        margin-bottom: 0;
+        &:hover {
+            color: #0088CC;
+        }
+    }
+    @include element(title-link) {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 33px;
+        color: #000000;
+        letter-spacing: -0.23px;
+        margin-top: 0;
+        margin-bottom: 0;
+        text-decoration: none;
+        &:hover {
+            color: #0088CC;
+        }
+    }
+    @include element(meta) {
+        font-weight: 600;
+        font-size: 10px;
+        line-height: 14px;
+        color: #999191;
+        letter-spacing: -0.1px;
+    }
+    @include element(content) {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    @include element(text) {
+        padding-right: 30px;
+    }
+    @include element(share-on) {
+        flex-shrink: 0;
+    }
+    @include media-breakpoint-only(xs) {
+        & {}
+    }
+    @include media-breakpoint-only(sm) {
+        & {}
+    }
+    @include media-breakpoint-only(md) {
+        & {}
+    }
+    @include media-breakpoint-only(lg) {
+        & {}
+    }
+    @include media-breakpoint-only(xl) {
+        & {}
+    }
+}

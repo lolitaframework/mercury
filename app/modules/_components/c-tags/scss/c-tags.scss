@@ -1,0 +1,55 @@
+@import "../../../../base/core/mixins";
+//
+//*****************************************************************************
+// c-tags
+//*****************************************************************************
+//
+//
+@include block(c-tags) {
+    @include element(items) {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: 0;
+    }
+    @include element(item) {
+        display: inline-block;
+        margin-right: 10px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    @include element(link) {
+        display: block;
+        height: 20px;
+        line-height: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: #F6F6F6;
+        font-size: 10px;
+        color: #999191;
+        letter-spacing: -0.1px;
+        text-transform: uppercase;
+        text-decoration: none;
+        &:hover {
+            transition: 0.2s all;
+            background-color: #000;
+            color: #fff;
+        }
+    }
+    @include media-breakpoint-only(xs) {
+        & {}
+    }
+    @include media-breakpoint-only(sm) {
+        & {}
+    }
+    @include media-breakpoint-only(md) {
+        & {}
+    }
+    @include media-breakpoint-only(lg) {
+        & {}
+    }
+    @include media-breakpoint-only(xl) {
+        & {}
+    }
+}

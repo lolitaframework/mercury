@@ -1,0 +1,85 @@
+@import "../../../../base/core/mixins";
+//
+//*****************************************************************************
+// c-share-on
+//*****************************************************************************
+//
+//
+@include block(c-share-on) {
+    width: 110px;
+    padding: 10px 5px 10px 10px;
+    background-color: #F6F6F6;
+    @include element(title) {
+        font-weight: 600;
+        font-size: 14px;
+        color: #000000;
+        letter-spacing: -0.13px;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    @include element(items) {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    @include element(item) {}
+    @include element(link) {
+        position: relative;
+        display: block;
+        padding-left: 15px;
+        font-size: 12px !important;
+        line-height: 17px;
+        color: #999191;
+        letter-spacing: 0px;
+        text-transform: uppercase;
+        text-decoration: none;
+        vertical-align: middle;
+        &:hover {
+            color: #08C;
+        }
+        &:before {
+            display: block;
+            width: 10px;
+            height: 17px;
+            line-height: 17px;
+            position: absolute;
+            left: 0;
+            top: -1px;
+            font-size: 10px;
+            vertical-align: middle;
+            text-align: center;
+        }
+        @include modifier(facebook) {
+            @include fa-icon($fa-var-facebook-f);
+        }
+        @include modifier(twitter) {
+            @include fa-icon($fa-var-twitter);
+        }
+        @include modifier(pinterest) {
+            @include fa-icon($fa-var-pinterest-p);
+        }
+        @include modifier(googleplus) {
+            @include fa-icon($fa-var-google-plus-square);
+        }
+        @include modifier(linkedin) {
+            @include fa-icon($fa-var-linkedin);
+        }
+    }
+    @include media-breakpoint-only(xs) {
+        & {}
+    }
+    @include media-breakpoint-only(sm) {
+        & {}
+    }
+    @include media-breakpoint-only(md) {
+        & {}
+    }
+    @include media-breakpoint-only(lg) {
+        & {}
+    }
+    @include media-breakpoint-only(xl) {
+        & {}
+    }
+}

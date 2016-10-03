@@ -1,0 +1,89 @@
+@import "../../../base/core/mixins";
+//
+//*****************************************************************************
+// b-slider
+//*****************************************************************************
+//
+//
+@include block(b-slider) {
+    position: relative;
+    width: 100%;
+    @include element(items) {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    @include element(item) {
+        display: block;
+        text-align: center;
+        height: 670px;
+        line-height: 670px;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+    @include element(item-text) {
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 780px;
+        font-weight: 100;
+        font-size: 44px;
+        color: #FFFFFF;
+        letter-spacing: -0.42px;
+        line-height: 59px;
+    }
+    @include element(image) {
+    	display: block;
+    	width: 100%;
+    	height: auto;
+    }
+    @include element(prev) {
+        @include text-hide();
+        display: block;
+        width: 16px;
+        height: 40px;
+        background: url('../img/controls_arrow.svg') 0 0 no-repeat;
+        background-size: contain;
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        left: 50px;
+        cursor: pointer;
+        z-index: 53;
+    }
+    @include element(next) {
+        @include text-hide();
+        transform: rotate(180deg);
+        display: block;
+        width: 16px;
+        height: 40px;
+        background: url('../img/controls_arrow.svg') 0 0 no-repeat;
+        background-size: contain;
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        right: 50px;
+        cursor: pointer;
+        z-index: 53;
+    }
+    @include modifier(article) {
+        @include element(item) {
+            max-height: 500px;
+        }
+    }
+    // media queries
+    @include media-breakpoint-only(xs) {
+        & {}
+    }
+    @include media-breakpoint-only(sm) {
+        & {}
+    }
+    @include media-breakpoint-only(md) {
+        & {}
+    }
+    @include media-breakpoint-only(lg) {
+        & {}
+    }
+    @include media-breakpoint-only(xl) {
+        & {}
+    }
+}

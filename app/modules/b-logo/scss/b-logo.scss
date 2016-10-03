@@ -1,0 +1,38 @@
+@import "../../../base/core/mixins";
+//
+//*****************************************************************************
+// b-logo
+//*****************************************************************************
+//
+//
+@include block(b-logo) {
+    @include element(item) {
+        @include text-hide();
+        display: block;
+        width: 150px;
+        height: 25px;
+        background: url('../img/logo.svg') 0 0 no-repeat;
+        background-size: contain;
+    }
+    //mod - black
+    @include modifier(black) {
+        @include element(item) {
+            background: url('../img/logo--black.svg') 0 0 no-repeat;
+        }
+    }
+    @include media-breakpoint-only(xs) {
+        & {}
+    }
+    @include media-breakpoint-only(sm) {
+        & {}
+    }
+    @include media-breakpoint-only(md) {
+        & {}
+    }
+    @include media-breakpoint-only(lg) {
+        & {}
+    }
+    @include media-breakpoint-only(xl) {
+        & {}
+    }
+}

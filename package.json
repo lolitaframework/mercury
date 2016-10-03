@@ -18,20 +18,14 @@
     "gulp-concat": "^2.6.0",
     "gulp-file-include": "^0.14.0",
     "gulp-flatten": "^0.3.1",
-    "gulp-image": "^2.4.1",
+    "gulp-imagemin": "^3.0.3",
     "gulp-remove-code": "^1.0.2",
     "gulp-remove-empty-lines": "0.0.8",
     "gulp-sass": "^2.3.2",
-    "gulp-typescript": "^2.13.6",
+    "gulp-typescript": "^2.14.0",
     "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.9",
-    "gulp-typescript": "^2.14.0",
-    "through": "^2.3.8"
-
-  },
-  "dependencies": {
     "gulp-replace": "^0.5.4",
-    "gulp-typescript": "^2.14.0",
-    "through": "^2.3.8"
+    "gulp-typescript": "^2.14.0"
   }
 }

@@ -1,0 +1,86 @@
+@import "../../../base/core/mixins";
+//
+//*****************************************************************************
+// b-main-menu
+// components: c-drop-down-list
+//*****************************************************************************
+//
+//
+@include block(b-main-menu) {
+    background-color: #333333;
+    @include element(items) {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    @include element(item) {
+        position: relative;
+        &:hover {
+            @include mix(c-drop-down-list, sub-menu) {
+                display: block;
+            }
+        }
+    }
+    @include element(link) {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        text-align: center;
+        height: 60px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #FFFFFF;
+        letter-spacing: -0.67px;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding-left: 10px;
+        padding-right: 10px;
+        &:hover {
+            background-color: #fff;
+            color: #333333;
+        }
+        @include modifier(has-submenu) {
+            padding-right: 32px;
+            background: url('../img/arrow_down.svg') top 50% right 10px no-repeat;
+            background-size: 12px 8px;
+            &:hover {
+                background-color: #fff;
+                color: #333333;
+                background: #fff url('../img/arrow_down--black.svg') top 50% right 10px no-repeat;
+            }
+        }
+        @include modifier(search) {
+            @include text-hide();
+            width: 15px;
+            background: url('../img/search.svg') 50% 53% no-repeat;
+            background-size: 15px 22px;
+            &:hover {
+                background-color: #333333;
+            }
+        }
+    }
+    @include mix(c-drop-down-list,
+    sub-menu) {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 60px;
+    }
+    //media queries
+    @include media-breakpoint-only(xs) {
+        & {}
+    }
+    @include media-breakpoint-only(sm) {
+        & {}
+    }
+    @include media-breakpoint-only(md) {
+        & {}
+    }
+    @include media-breakpoint-only(lg) {
+        & {}
+    }
+    @include media-breakpoint-only(xl) {
+        & {}
+    }
+}

@@ -1,21 +1,21 @@
-var gulp             = require('gulp');
-var through          = require('through');
-var autoprefixer     = require('gulp-autoprefixer');
-var cleanCSS         = require('gulp-clean-css');
-var uglify           = require('gulp-uglify');
-var sass             = require('gulp-sass');
-var concat           = require('gulp-concat');
-var image            = require('gulp-image');
-var browserSync      = require('browser-sync');
-var watch            = require('gulp-watch'); gulp.watch = watch;
-var flatten          = require('gulp-flatten');
-var del              = require('del');
-var cache            = require('gulp-cache');
-var fileinclude      = require('gulp-file-include');
-var removeCode       = require('gulp-remove-code');
+var gulp = require('gulp');
+var autoprefixer = require('gulp-autoprefixer');
+var cleanCSS = require('gulp-clean-css');
+var uglify = require('gulp-uglify');
+var sass = require('gulp-sass');
+var concat = require('gulp-concat');
+var imagemin = require('gulp-imagemin');
+var browserSync = require('browser-sync').create();
+var watch = require('gulp-watch');
+gulp.watch = watch;
+var flatten = require('gulp-flatten');
+var del = require('del');
+var cache = require('gulp-cache');
+var fileinclude = require('gulp-file-include');
+var removeCode = require('gulp-remove-code');
 var removeEmptyLines = require('gulp-remove-empty-lines');
-var sourcemaps       = require('gulp-sourcemaps');
-var typescript       = require('gulp-typescript');
+var sourcemaps = require('gulp-sourcemaps');
+var typescript = require('gulp-typescript');
 
 /* Routes */
 
@@ -23,6 +23,9 @@ var typescript       = require('gulp-typescript');
 var base_scss_route_from = ['app/base/*.scss', 'app/base/core/*.scss', 'app/base/modules/**/scss/*.scss'];
 var base_scss_route_to = 'dist/css';
 var base_scss_route_file_name = 'base.css';
+
+var base_fonts_route_from = 'app/base/core/fontawesome/fonts/*.*';
+var base_fonts_route_to = 'dist/fonts';
 
 //general
 var general_scss_route_from = 'app/general/scss/*.scss';
@@ -62,27 +65,43 @@ var layouts_images_route_to = 'dist/img';
 
 
 //modules
-var modules_scss_route_from = 'app/modules/**/**/scss/*.scss';
+var modules_scss_route_from = ['app/modules/**/scss/*.scss', '!app/modules/_components/**/scss/*.scss'];
 var modules_scss_route_to = 'dist/css';
 var modules_scss_route_file_name = 'modules.css';
 
-var modules_js_route_from = 'app/modules/**/**/js/*.js';
+var modules_js_route_from = ['app/modules/**/js/*.js', '!app/modules/_components'];
 var modules_js_route_to = 'dist/js';
 var modules_js_route_file_name = 'modules.js';
 
-var modules_ts_route_from = 'app/modules/**/**/ts/*.ts';
+var modules_ts_route_from = ['app/modules/**/ts/*.ts', '!app/modules/_components'];
 var modules_ts_route_file_name = 'modules-ts.js';
 var modules_ts_route_to = 'dist/js';
 
-var modules_images_route_from = 'app/modules/**/**/img/*.*';
+var modules_images_route_from = ['app/modules/**/img/*.*', '!app/modules/_components'];
 var modules_images_route_to = 'dist/img';
 
-var modules_html_route_from = ['app/modules/**/**/*.html', '!app/modules/.html-cache/*.html'];
-var modules_html_route_to = 'app/modules/.html-cache';
+var modules_html_route_from = ['app/modules/**/*.html', '!app/tmp/*.html'];
+var modules_html_route_to = 'app/tmp';
+
+//components
+var components_scss_route_from = ['app/modules/_components/**/scss/*.scss'];
+var components_scss_route_to = 'dist/css';
+var components_scss_route_file_name = 'components.css';
+
+var components_js_route_from = ['app/modules/_components/**/js/*.js'];
+var components_js_route_to = 'dist/js';
+var components_js_route_file_name = 'components.js';
+
+var components_ts_route_from = ['app/modules/_components/**/ts/*.ts'];
+var components_ts_route_file_name = 'components-ts.js';
+var components_ts_route_to = 'dist/js';
+
+var components_images_route_from = ['app/modules/_components/**/img/*.*']
+var components_images_route_to = 'dist/img';
 
 //templates
 var templates_html_route_from = 'app/*.html';
-var templates_html_route_cache = 'app/modules/.html-cache';
+var templates_html_route_cache = 'app/tmp';
 var templates_html_route_to = 'dist/';
 
 /* Handlers */
@@ -97,7 +116,7 @@ function makeSCSS(folder_from, folder_to, dest_file) {
         .pipe(cleanCSS({ compatibility: 'ie10' }))
         .pipe(concat(dest_file))
         .pipe(gulp.dest(folder_to));
-}  
+}
 
 
 function makeJS(folder_from, folder_to, dest_file) {
@@ -122,7 +141,7 @@ function makeTS(folder_from, folder_to, dest_file) {
 
 function copyImages(folder_from, folder_to) {
     gulp.src(folder_from)
-        .pipe(cache(image()))
+        .pipe(cache(imagemin()))
         .pipe(flatten())
         .pipe(gulp.dest(folder_to));
 }
@@ -138,8 +157,8 @@ function makeHTML(folder_from, folder_cache, folder_to) {
     gulp.src(folder_from)
         .pipe(flatten())
         .pipe(fileinclude({
-          prefix: '@@',
-          basepath: folder_cache
+            prefix: '@@',
+            basepath: folder_cache
         }))
         .pipe(removeCode({ production: true }))
         .pipe(removeEmptyLines())
@@ -154,35 +173,34 @@ function buildTemplates() {
 
 /* Default Task */
 
-gulp.task('default', ['base', 'general', 'layouts', 'modules', 'templates'], function() {
-    browserSync({
+gulp.task('default', ['base', 'general', 'layouts', 'modules', 'components', 'templates'], function() {
+    browserSync.init({
+        logLevel: "info",
+        port: 8080,
+        open: false,
         server: {
-            baseDir: 'dist'
+            baseDir: '.'
         },
         notify: false
     });
-    gulp.watch(['dist/*.*', 'dist/**/*.*', 'dist/**/**/*.*'], 
-        function() {
-            gulp.src(['dist/*.*', 'dist/**/*.*', 'dist/**/**/*.*'])
-                .pipe(browserSync.reload({stream: true}));
-        }
-    );
-
+    gulp.watch(['dist/*.*', 'dist/**/*.*', 'dist/**/**/*.*', 'dist/**/**/**/*.*', 'dist/**/**/**/**/*.*'], function() {
+        browserSync.reload();
+    });
 });
 
 
 /* Tasks */
 
-gulp.task('removedist', function() { 
-    return del.sync('dist'); 
+gulp.task('removedist', function() {
+    return del.sync('dist');
 });
 
-gulp.task('clearhtmlcache', function() { 
-    return del.sync('app/modules/.html-cache/*.*'); 
+gulp.task('clearhtmlcache', function() {
+    return del.sync('app/tmp/*.*');
 });
 
-gulp.task('clearcache', function () { 
-    return cache.clearAll(); 
+gulp.task('clearcache', function() {
+    return cache.clearAll();
 });
 
 gulp.task('makehtml', function() {
@@ -190,35 +208,40 @@ gulp.task('makehtml', function() {
 });
 
 gulp.task('base', function() {
-    gulp.watch(base_scss_route_from, 
+    gulp.watch(base_scss_route_from,
         function() {
             makeSCSS(base_scss_route_from, base_scss_route_to, base_scss_route_file_name);
+        }
+    );
+    gulp.watch(base_fonts_route_from,
+        function() {
+            copyFiles(base_fonts_route_from, base_fonts_route_to);
         }
     );
 });
 
 gulp.task('general', function() {
-    gulp.watch(general_scss_route_from, 
+    gulp.watch(general_scss_route_from,
         function() {
             makeSCSS(general_scss_route_from, general_scss_route_to, general_scss_route_file_name);
         }
     );
-    gulp.watch(general_js_route_from, 
+    gulp.watch(general_js_route_from,
         function() {
             makeJS(general_js_route_from, general_js_route_to, general_js_route_file_name);
         }
     );
-    gulp.watch(general_images_route_from, 
+    gulp.watch(general_images_route_from,
         function() {
             copyImages(general_images_route_from, general_images_route_to);
         }
     );
-    gulp.watch(general_fonts_route_from, 
+    gulp.watch(general_fonts_route_from,
         function() {
             copyFiles(general_fonts_route_from, general_fonts_route_to);
         }
     );
-    gulp.watch(general_ts_route_from, 
+    gulp.watch(general_ts_route_from,
         function() {
             makeTS(general_ts_route_from, general_ts_route_to, general_ts_route_file_name);
         }
@@ -226,22 +249,22 @@ gulp.task('general', function() {
 });
 
 gulp.task('layouts', function() {
-    gulp.watch(layouts_scss_route_from, 
+    gulp.watch(layouts_scss_route_from,
         function() {
             makeSCSS(layouts_scss_route_from, layouts_scss_route_to, layouts_scss_route_file_name);
         }
     );
-    gulp.watch(layouts_js_route_from, 
+    gulp.watch(layouts_js_route_from,
         function() {
             makeJS(layouts_js_route_from, layouts_js_route_to, layouts_js_route_file_name);
         }
     );
-    gulp.watch(layouts_images_route_from, 
+    gulp.watch(layouts_images_route_from,
         function() {
             copyImages(layouts_images_route_from, layouts_images_route_to);
         }
     );
-    gulp.watch(layouts_ts_route_from, 
+    gulp.watch(layouts_ts_route_from,
         function() {
             makeTS(layouts_ts_route_from, layouts_ts_route_to, layouts_ts_route_file_name);
         }
@@ -249,35 +272,58 @@ gulp.task('layouts', function() {
 });
 
 gulp.task('modules', function() {
-    gulp.watch(modules_scss_route_from, 
+    gulp.watch(modules_scss_route_from,
         function() {
             makeSCSS(modules_scss_route_from, modules_scss_route_to, modules_scss_route_file_name);
         }
     );
-    gulp.watch(modules_js_route_from, 
+    gulp.watch(modules_js_route_from,
         function() {
             makeJS(modules_js_route_from, modules_js_route_to, modules_js_route_file_name);
         }
     );
-    gulp.watch(modules_images_route_from, 
+    gulp.watch(modules_images_route_from,
         function() {
             copyImages(modules_images_route_from, modules_images_route_to);
         }
     );
-    gulp.watch(modules_html_route_from, 
+    gulp.watch(modules_html_route_from,
         function() {
             copyFiles(modules_html_route_from, modules_html_route_to, buildTemplates);
         }
     );
-    gulp.watch(modules_ts_route_from, 
+    gulp.watch(modules_ts_route_from,
         function() {
             makeTS(modules_ts_route_from, modules_ts_route_to, modules_ts_route_file_name);
         }
     );
 });
 
+gulp.task('components', function() {
+    gulp.watch(components_scss_route_from,
+        function() {
+            makeSCSS(components_scss_route_from, components_scss_route_to, components_scss_route_file_name);
+        }
+    );
+    gulp.watch(components_js_route_from,
+        function() {
+            makeJS(components_js_route_from, components_js_route_to, components_js_route_file_name);
+        }
+    );
+    gulp.watch(components_images_route_from,
+        function() {
+            copyImages(components_images_route_from, components_images_route_to);
+        }
+    );
+    gulp.watch(components_ts_route_from,
+        function() {
+            makeTS(components_ts_route_from, components_ts_route_to, components_ts_route_file_name);
+        }
+    );
+});
+
 gulp.task('templates', function() {
-    gulp.watch([templates_html_route_from], 
+    gulp.watch([templates_html_route_from],
         function() {
             buildTemplates();
         }
@@ -287,6 +333,7 @@ gulp.task('templates', function() {
 gulp.task('build', ['removedist', 'clearcache', 'clearhtmlcache'], function() {
     //base
     makeSCSS(base_scss_route_from, base_scss_route_to, base_scss_route_file_name);
+    copyFiles(base_fonts_route_from, base_fonts_route_to);
     //general
     makeSCSS(general_scss_route_from, general_scss_route_to, general_scss_route_file_name);
     makeJS(general_js_route_from, general_js_route_to, general_js_route_file_name);
@@ -304,8 +351,9 @@ gulp.task('build', ['removedist', 'clearcache', 'clearhtmlcache'], function() {
     copyImages(modules_images_route_from, modules_images_route_to);
     copyFiles(modules_html_route_from, modules_html_route_to, buildTemplates);
     makeTS(modules_ts_route_from, modules_ts_route_to, modules_ts_route_file_name);
+    //components
+    makeSCSS(components_scss_route_from, components_scss_route_to, components_scss_route_file_name);
+    makeJS(components_js_route_from, components_js_route_to, components_js_route_file_name);
+    copyImages(components_images_route_from, components_images_route_to);
+    makeTS(components_ts_route_from, components_ts_route_to, components_ts_route_file_name);
 });
-
-
-
-

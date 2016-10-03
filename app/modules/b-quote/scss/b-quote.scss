@@ -1,0 +1,100 @@
+@import "../../../base/core/mixins";
+//
+//*****************************************************************************
+// b-quote
+//*****************************************************************************
+//
+//
+@include block(b-quote) {
+    @include gradient-y(#273A44, #354759);
+    position: relative;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.50);
+    width: 100%;
+    padding: 58px 28px 10px 28px;
+    &:before {
+        content: ' ';
+        display: block;
+        width: 20px;
+        height: 18px;
+        background: url('../img/quote-symbol.svg') 0 0 no-repeat;
+        background-size: contain;
+        position: absolute;
+        top: 33.57px;
+        left: 50%;
+        margin-left: -9px;
+    }
+    @include element(quote) {
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
+    @include element(text) {
+        display: block;
+        padding: 0;
+        max-width: 693px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 36px;
+        font-style: italic;
+        color: #FFFFFF;
+        line-height: 48px;
+    }
+    @include element(author) {
+        display: block;
+        text-align: center;
+        padding: 0;
+        max-width: 693px;
+        margin: 0 auto;
+        font-size: 30px;
+        font-style: italic;
+        color: #FFFFFF;
+        line-height: 48px;
+        &:before {
+        	content: '― ';
+        }
+    }
+    @include element(meta) {
+        font-weight: 100;
+        font-size: 14px;
+        line-height: 19px;
+        color: #FFFFFF;
+        max-width: 693px;
+        margin: 0 auto;
+        margin-top: 21px;
+        text-align: center;
+    }
+    @include element(likes) {
+        display: inline-block;
+        vertical-align: baseline;
+        margin-left: 8px;
+        &:before {
+            content: ' ';
+            display: inline-block;
+            width: 14px;
+            height: 12px;
+            background: url('../img/like-heart.svg') 0 0 no-repeat;
+            background-size: contain;
+            margin-right: 3px;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+        }
+    }
+    //media queries
+    @include media-breakpoint-only(xs) {
+        & {}
+    }
+    @include media-breakpoint-only(sm) {
+        & {}
+    }
+    @include media-breakpoint-only(md) {
+        & {}
+    }
+    @include media-breakpoint-only(lg) {
+        & {}
+    }
+    @include media-breakpoint-only(xl) {
+        & {}
+    }
+}

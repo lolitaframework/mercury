@@ -136,7 +136,7 @@ $modifierSeparator: '--';
         $last: last($tags);
         $cleared_block: clear_block($last);
         $cleared_element: clear_element($last);
-        @if is_pseudo_element(last($last)) {
+        @if is_pseudo_element(last($last)) or is_modifier(last($last)) {
             @if $parent==null {
                 @debug $cleared_element+'.'+$cleared_block+$elementSeparator+$name+get_pseudo_element($last);
                 $selector: selector-replace($selector, $last, $cleared_element + $cleared_block + $elementSeparator + $name + get_pseudo_element($last));

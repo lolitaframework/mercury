@@ -1,30 +1,24 @@
 @import "../../../base/core/mixins";
 //
 //*****************************************************************************
-// b-instagram
-// components: c-aside-title
+// b-back-to-top
 //*****************************************************************************
 //
 //
-@include block(b-instagram) {
-    width: 100%;
-    padding-top: 15px;
-    text-align: center;
-    @include element(items) {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-    @include element(item) {
-        display: block;
-        width: 160px;
-        height: 160px;
-        float: left;
-    }
-    @include element(link) {
-        display: block;
-    }
-    @include element(image) {}
+@include block(b-back-to-top) {
+	@include text-hide();
+	transition: background-color 0.2s ease-out;
+	display: block;
+	width: 50px;
+	height: 50px;
+	border: none;
+	background: #000 url('../img/top-arrow--white.svg') 50% 50% no-repeat;
+	background-size: 12px 8px;
+	&:hover {
+		transition: background-color 0.2s ease-out;
+		background: #fff url('../img/top-arrow--black.svg') 50% 50% no-repeat;
+		background-size: 12px 8px;
+	}
     // media queries
     @include media-breakpoint-only(xs) {
         & {}

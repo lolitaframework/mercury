@@ -1,0 +1,86 @@
+@import "../../../base/core/mixins";
+//
+//*****************************************************************************
+// b-social-networks
+//*****************************************************************************
+//
+//
+@include block(b-social-networks) {
+    @include element(items) {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex; 
+    }
+    @include element(item) {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    @include element(link) {
+        @include text-hide();
+        position: relative;
+        display: block;
+        width: 35px;
+        height: 35px;
+        border: 1px solid #000;
+        border-radius: 100%;
+        overflow: hidden;
+        vertical-align: middle;
+
+        &:before {
+        	transition: 0.2s all;
+        	color: #000;
+        	background-color: #fff;
+        	font-size: 14px;
+        	line-height: 35px;
+        	position: absolute;
+        	top: 0;
+        	bottom: 0;
+        	right: 0;
+        	left: 0;
+        	text-align: center;
+        	vertical-align: middle;
+        }
+
+        &:hover:before {
+        	transition: 0.2s all;
+        	color: #fff;
+        	background-color: #000;
+        }
+
+        @include modifier(facebook) {
+        	@include fa-icon($fa-var-facebook-f);        	
+        }
+        @include modifier(twitter) {
+        	@include fa-icon($fa-var-twitter);	
+        }
+        @include modifier(pinterest) {
+        	@include fa-icon($fa-var-pinterest-p);
+        }
+        @include modifier(googleplus) {
+        	@include fa-icon($fa-var-google-plus-square);
+        }
+        @include modifier(instagram) {
+        	@include fa-icon($fa-var-instagram);
+        }
+        @include modifier(linkedin) {
+			@include fa-icon($fa-var-linkedin);
+        }
+    }
+    // media queries
+    @include media-breakpoint-only(xs) {
+        & {}
+    }
+    @include media-breakpoint-only(sm) {
+        & {}
+    }
+    @include media-breakpoint-only(md) {
+        & {}
+    }
+    @include media-breakpoint-only(lg) {
+        & {}
+    }
+    @include media-breakpoint-only(xl) {
+        & {}
+    }
+}

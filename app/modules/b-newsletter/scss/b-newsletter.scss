@@ -1,34 +1,42 @@
 @import "../../../base/core/mixins";
 //
 //*****************************************************************************
-// b-about-me
-// components: c-aside-title, c-portrait
+// b-newsletter
+// components: c-aside-title, c-aside-field, c-aside-button
 //*****************************************************************************
 //
 //
-@include block(b-about-me) {
-    width: 100%;
+@include block(b-newsletter) {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    padding-bottom: 45px;
-    background-color: #fff;
+    width: 100%;
+    margin-bottom: 45px;
     @include mix(c-aside-title, title) {
+        margin-bottom: 20px;
+    }
+    @include element(text) {
         margin-top: 0;
-        margin-bottom: 25px;
-    }
-    @include mix(c-portrait, portrait) {
-        margin-bottom: 15px;
-    }
-    @include element(content) {
+        margin-bottom: 0;
         font-weight: 100;
         font-size: 14px;
         color: #000000;
         letter-spacing: -0.14px;
-        max-width: 250px;
+        max-width: 300px;
         text-align: center;
-        margin-top: 0;
-        margin-bottom: 0;
+        margin-bottom: 30px;
+    }
+    @include element(form) {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        width: 100%;
+    }
+    @include mix(c-aside-field, email) {
+        margin-bottom: 20px;
+    }
+    @include mix(c-aside-button, submit) {
+
     }
     // media queries
     @include media-breakpoint-only(xs) {

@@ -1,20 +1,28 @@
-@import "../../../base/core/mixins";
+@import "../../../../base/core/mixins";
 //
 //*****************************************************************************
-// b-subscribe-and-follow
-// components: c-aside-title, b-social-networks
+// c-aside-field
 //*****************************************************************************
 //
 //
-@include block(b-subscribe-and-follow) {
-	width: 100%;
-	display: flex;
-	flex-flow: column nowrap;
-	align-items: center;
-	margin-bottom: 45px;
-    @include mix(c-aside-title, title) {
-        margin-top: 0;
-        margin-bottom: 20px;
+@include block(c-aside-field) {
+    width: 100%;
+    max-width: 300px;
+    height: 45px;
+    border: 1px solid #F2F2F2;
+    border-radius: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 14px;
+    color: #000000;
+    line-height: 24.87px;
+    outline: none;
+    @include placeholder {
+        color: #F2F2F2;
+        letter-spacing: 0px;
+    }
+    &:focus {
+        border: 1px solid #000;
     }
     // media queries
     @include media-breakpoint-only(xs) {

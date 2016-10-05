@@ -1,34 +1,34 @@
 @import "../../../base/core/mixins";
 //
 //*****************************************************************************
-// b-about-me
-// components: c-aside-title, c-portrait
+// b-latest-posts
+// components: c-aside-title, c-post-preview
 //*****************************************************************************
 //
 //
-@include block(b-about-me) {
+@include block(b-latest-posts) {
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     padding-bottom: 45px;
     background-color: #fff;
-    @include mix(c-aside-title, title) {
-        margin-top: 0;
-        margin-bottom: 25px;
+    @include mix(c-aside-title, title) {}
+    @include element(items) {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 300px;
     }
-    @include mix(c-portrait, portrait) {
-        margin-bottom: 15px;
+    @include element(item) {
+        margin-bottom: 20px;
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
-    @include element(content) {
-        font-weight: 100;
-        font-size: 14px;
-        color: #000000;
-        letter-spacing: -0.14px;
-        max-width: 250px;
-        text-align: center;
-        margin-top: 0;
-        margin-bottom: 0;
+    @include mix(c-post-preview, link) {
+        display: block;
     }
     // media queries
     @include media-breakpoint-only(xs) {

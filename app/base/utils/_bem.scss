@@ -85,15 +85,15 @@ $modifierSeparator: '--';
 @function apply-element-selector($selector, $name) {
     @each $tags in $selector {
         $last: last($tags);
-        $cleared_element: clear_element($last);
+        $cleared_block: clear_block($last);
         @if is_empty_element($last) {
             @error "Element should be inside a block";
         }
         @else if is_pseudo_element($last) {
-            $selector: join($selector, $cleared_element + $elementSeparator + $name);
+            $selector: join($selector, $cleared_block + $elementSeparator + $name);
         }
         @else if is_modifier($last) {
-            $selector: join($selector, $cleared_element + $elementSeparator + $name);
+            $selector: join($selector, $cleared_block + $elementSeparator + $name);
         }
         @else if is_element($last) {
             @error "Element should be inside an element";

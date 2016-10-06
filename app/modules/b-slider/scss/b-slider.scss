@@ -32,38 +32,52 @@
         line-height: 59px;
     }
     @include element(image) {
-    	display: block;
-    	width: 100%;
-    	height: auto;
+        display: block;
+        width: 100%;
+        height: auto;
     }
     @include element(prev) {
         @include text-hide();
+        transition: 0.2s all;
         display: block;
-        width: 16px;
-        height: 40px;
-        background: url('../img/controls_arrow.svg') 0 0 no-repeat;
-        background-size: contain;
+        width: 48px;
+        height: 76px;
+        border: 1px solid transparent;
+        background: url('../img/controls_arrow.svg') 50% 50% no-repeat;
+        background-size: 16px 40px;
         position: absolute;
         top: 50%;
         margin-top: -20px;
         left: 50px;
         cursor: pointer;
         z-index: 53;
+        &:hover {
+            transition: 0.2s all;
+            border: 1px solid #fff;
+            border-radius: 3px;
+        }
     }
     @include element(next) {
         @include text-hide();
+        transition: 0.2s all;
         transform: rotate(180deg);
         display: block;
-        width: 16px;
-        height: 40px;
-        background: url('../img/controls_arrow.svg') 0 0 no-repeat;
-        background-size: contain;
+        width: 48px;
+        height: 76px;
+        border: 1px solid transparent;
+        background: url('../img/controls_arrow.svg') 50% 50% no-repeat;
+        background-size: 16px 40px;
         position: absolute;
         top: 50%;
         margin-top: -20px;
         right: 50px;
         cursor: pointer;
         z-index: 53;
+        &:hover {
+            transition: 0.2s all;
+            border: 1px solid #fff;
+            border-radius: 3px;
+        }
     }
     @include modifier(article) {
         @include element(item) {

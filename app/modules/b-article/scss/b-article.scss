@@ -12,6 +12,7 @@
         padding: 20px 20px 0 20px;
     }
     @include element(title) {
+        transition: 0.2s all;
         font-weight: 600;
         font-size: 24px;
         line-height: 33px;
@@ -20,10 +21,12 @@
         margin-top: 0;
         margin-bottom: 0;
         &:hover {
+            transition: 0.2s all;
             color: #0088CC;
         }
     }
     @include element(title-link) {
+        transition: 0.2s all;
         font-weight: 600;
         font-size: 24px;
         line-height: 33px;
@@ -33,6 +36,7 @@
         margin-bottom: 0;
         text-decoration: none;
         &:hover {
+            transition: 0.2s all;
             color: #0088CC;
         }
     }

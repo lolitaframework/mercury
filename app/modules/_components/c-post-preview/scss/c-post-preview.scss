@@ -10,6 +10,12 @@
     display: flex !important;
     flex-flow: row nowrap;
     text-decoration: none;
+    &:hover {
+        @include element(title) {
+            transition: 0.2s all;
+            color: #08C;
+        }    
+    }
     @include element(image) {
         display: block;
         width: 70px;
@@ -18,6 +24,7 @@
         flex-shrink: 0;
     }
     @include element(title) {
+        transition: 0.2s all;
         font-weight: 600;
         font-size: 14px;
         color: #000000;

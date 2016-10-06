@@ -26,6 +26,7 @@
     }
     @include element(item) {}
     @include element(link) {
+        transition: 0.2s all;
         position: relative;
         display: block;
         padding-left: 15px;
@@ -37,6 +38,7 @@
         text-decoration: none;
         vertical-align: middle;
         &:hover {
+            transition: 0.2s all;
             color: #08C;
         }
         &:before {

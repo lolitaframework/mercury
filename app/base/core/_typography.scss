@@ -1,5 +1,5 @@
 @import "mixins";
-.c-text {
+@include block(c-text) {
     h1,
     h2,
     h3,

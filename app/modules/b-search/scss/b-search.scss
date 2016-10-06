@@ -8,22 +8,73 @@
 @include block(b-search) {
     width: 100%;
     @include element(form) {
-        
+        position: relative;
+        height: 60px;
+        padding-left: 35px;
+        padding-right: 30px;
+        overflow: hidden;
+        &:before {
+            animation-name: slide-left-animation;
+            animation-duration: 0.8s;
+            content: ' ';
+            width: 15px;
+            height: 15px;
+            background: url('../img/search--white.svg') 0 0 no-repeat;
+            background-size: contain;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -7px;
+        }
     }
     @include element(input) {
-
+        animation-name: slide-left-animation;
+        animation-duration: 0.8s;
+        display: block;
+        width: 100%;
+        height: 60px;
+        line-height: 19px;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-size: 14px;
+        color: #FFFFFF;
+        letter-spacing: 0.19px;
+    }
+    @include element(close) {
+        @include text-hide();
+        animation-name: opacity-transition-animation;
+        animation-duration: 0.4s;
+        display: block;
+        border: none;
+        outline: none;
+        width: 15px;
+        height: 15px;
+        background: url('../img/close--white.svg') 0 0 no-repeat;
+        background-size: contain;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: -7px;
     }
     @include element(results) {
-        display: none;
-
+        animation-name: drop-down-animation;
+        animation-duration: 0.6s;
+        background-color: #fff;
+        list-style: none;
+        margin: 0;
+        padding: 25px 20px;
     }
     @include element(item) {
-
+        margin-bottom: 25px;
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
     @include element(link) {
-
         @include mix(c-search-item) {
-
+            display: block;
+            text-decoration: none;
         }
     }
     // media queries
@@ -41,5 +92,47 @@
     }
     @include media-breakpoint-only(xl) {
         & {}
+    }
+}
+
+//slide to left side animation
+@keyframes slide-left-animation {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100px, 0, 0);
+        transform: translate3d(100px, 0, 0);
+        -webkit-animation-timing-function: cubic-bezier(0.11393, 0.8644, 0.14684, 1);
+        animation-timing-function: cubic-bezier(0.11393, 0.8644, 0.14684, 1)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+//opacity transition animation
+@keyframes opacity-transition-animation {
+    0% {
+        opacity: 0;
+        transition: 0.3s all;
+    }
+    100% {
+        opacity: 1;
+        transition: 0.3s all;
+    }
+}
+
+//dropdown animation
+@keyframes drop-down-animation {
+    0% {
+        opacity: 0;
+        transition: visibility 0s cubic-bezier(0.165, 0.84, 0.44, 1) 0.25s, opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transform: translate(0, -5px);
+    }
+    100% {
+        opacity: 1;
+        transition: visibility 0s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transform: translate(0, 0);
     }
 }

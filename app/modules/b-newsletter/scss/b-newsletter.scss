@@ -11,7 +11,6 @@
     flex-flow: column nowrap;
     align-items: center;
     width: 100%;
-    margin-bottom: 45px;
     @include mix(c-aside-title, title) {
         margin-bottom: 20px;
     }

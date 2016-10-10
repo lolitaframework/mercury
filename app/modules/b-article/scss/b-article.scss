@@ -7,7 +7,6 @@
 //
 //
 @include block(b-article) {
-    margin-bottom: 30px;
     @include element(bottom) {
         padding: 20px 20px 0 20px;
     }

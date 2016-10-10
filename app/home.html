@@ -16,16 +16,67 @@
 </head>
 
 <body>
-    @@include('./b-logo.html')
-    <div class="container" style="background-color: grey">
-        <div class="row">
-            <div class="col-xs-12" style="height: 100px; background-color: red;">
-                
+    <header class="l-header">
+        <div class="l-header__top">
+            <div class="container">
+                @@include("b-logo.html", {"mod" : "", "mix" : "l-header__top-item"}) @@include("b-main-menu--header.html", {"mod" : "", "mix" : "l-header__top-item"})
             </div>
         </div>
-    </div>
+        <div class="l-header__bottom">
+            @@include("b-slider.html")
+        </div>
+    </header>
+    <section class="l-three-columns">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    @@include("b-promo.html", {"mod" : "", "mix" : "l-three-columns__item"})
+                </div>
+                <div class="col-sm-4">
+                    @@include("b-promo.html", {"mod" : "", "mix" : "l-three-columns__item"})
+                </div>
+                <div class="col-sm-4">
+                    @@include("b-promo.html", {"mod" : "", "mix" : "l-three-columns__item"})
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="l-main">
+        <div class="container">
+            <div class="l-main__inner">
+                <div class="l-main__content">
+                    @@include("b-article.html", {"mod" : "", "mix" : "l-main__content-item"})
+                    @@include("b-article2.html", {"mod" : "", "mix" : "l-main__content-item"})
+                    @@include("b-article3.html", {"mod" : "", "mix" : "l-main__content-item"})
+                    @@include("b-quote.html", {"mod" : "", "mix" : "l-main__content-item"})
+                    @@include("b-linked-article.html", {"mod" : "", "mix" : "l-main__content-item"})
+                    @@include("b-audio.html", {"mod" : "", "mix" : "l-main__content-item"})
+                    @@include("b-pagination.html", {"mod" : "", "mix" : "l-main__content-item"})
+                </div>
+                <aside class="l-main__sidebar">
+                    @@include("b-about-me.html", {"mod" : "", "mix" : "l-main__sidebar-item"}) @@include("b-subscribe-and-follow.html", {"mod" : "", "mix" : "l-main__sidebar-item"}) @@include("b-newsletter.html", {"mod" : "", "mix" : "l-main__sidebar-item"}) @@include("b-latest-posts.html", {"mod" : "", "mix" : "l-main__sidebar-item"}) @@include("b-categories.html", {"mod" : "", "mix" : "l-main__sidebar-item"}) @@include("b-instagram2.html", {"mod" : "", "mix" : "l-main__sidebar-item"}) @@include("b-banner-spot.html", {"mod" : "", "mix" : "l-main__sidebar-item"}) @@include("b-facebook-widget.html", {"mod" : "", "mix" : "l-main__sidebar-item"})
+                </aside>
+            </div>
+        </div>
+    </section>
+    <footer class="l-footer">
+        <div class="l-footer__full-width">
+            
+        </div>
+        <div class="l-footer__common container">
+            <div class="row">
+                <div class="col-sm-6">
+                    
+                </div>
+                <div class="col-sm-6">
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 <!-- SCRIPTS -->
+<script src="./js/vendors.js" type="text/javascript" charset="utf-8"></script>
 <script src="./js/general.js" type="text/javascript" charset="utf-8"></script>
 <script src="./js/layouts.js" type="text/javascript" charset="utf-8"></script>
 <script src="./js/components.js" type="text/javascript" charset="utf-8"></script>

@@ -8,7 +8,6 @@
 //
 @include block(b-main-menu) {
     @include modifier(header) {
-        background-color: #333333;
         @include element(items) {
             display: flex;
             list-style: none;
@@ -20,6 +19,18 @@
             &:hover {
                 @include mix(c-drop-down-list, sub-menu) {
                     display: block;
+                }
+                @include element(link) {
+                    background-color: #fff;
+                    color: #333333;
+                    @include modifier(has-submenu) {
+                        background-color: #fff;
+                        color: #333333;
+                        background: #fff url('../img/arrow_down--black.svg') top 50% right 10px no-repeat;
+                    }
+                    @include modifier(search) { 
+                        background-color: transparent;
+                    }
                 }
             }
         }
@@ -37,28 +48,16 @@
             text-decoration: none;
             padding-left: 10px;
             padding-right: 10px;
-            &:hover {
-                background-color: #fff;
-                color: #333333;
-            }
             @include modifier(has-submenu) {
                 padding-right: 32px;
                 background: url('../img/arrow_down.svg') top 50% right 10px no-repeat;
                 background-size: 12px 8px;
-                &:hover {
-                    background-color: #fff;
-                    color: #333333;
-                    background: #fff url('../img/arrow_down--black.svg') top 50% right 10px no-repeat;
-                }
             }
             @include modifier(search) {
                 @include text-hide();
                 width: 15px;
                 background: url('../img/search.svg') 50% 53% no-repeat;
                 background-size: 15px 22px;
-                &:hover {
-                    background-color: #333333;
-                }
             }
         }
         @include mix(c-drop-down-list,

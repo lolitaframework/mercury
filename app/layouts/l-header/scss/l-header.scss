@@ -1,19 +1,28 @@
 @import "../../../base/core/mixins";
 //
 //*****************************************************************************
-// b-subscribe-and-follow
-// components: c-aside-title, b-social-networks
+// l-header
 //*****************************************************************************
 //
 //
-@include block(b-subscribe-and-follow) {
-	width: 100%;
-	display: flex;
-	flex-flow: column nowrap;
-	align-items: center;
-    @include mix(c-aside-title, title) {
-        margin-top: 0;
-        margin-bottom: 20px;
+@include block(l-header) {
+    @include element(top) {
+        position: relative;
+        background-color: #2A2A2A;
+        .container {
+        	height: 60px;
+            position: relative;
+        }
+    }
+    @include mix(b-logo, top-item) {
+        position: absolute;
+        top: 19px;
+        left: 15px;
+    }
+    @include mix(b-main-menu, top-item) {
+        position: absolute;
+        top: 0;
+        right: 15px;
     }
     // media queries
     @include media-breakpoint-only(xs) {

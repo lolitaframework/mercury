@@ -1,0 +1,46 @@
+@import "../../../base/core/mixins";
+//
+//*****************************************************************************
+// l-three-columns
+//*****************************************************************************
+//
+//
+@include block(l-main) {
+    @include element(inner) {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+    @include element(content) {
+        width: 750px;
+    }
+    @include element(sidebar) {
+        width: 300px;
+    }
+    @include element(content-item) {
+        margin-bottom: 30px;
+    }
+    @include mix(b-pagination, content-item) {
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+    @include element(sidebar-item) {
+        margin-bottom: 45px;
+    }
+    // media queries
+    @include media-breakpoint-only(xs) {
+        & {}
+    }
+    @include media-breakpoint-only(sm) {
+        & {}
+    }
+    @include media-breakpoint-only(md) {
+        & {}
+    }
+    @include media-breakpoint-only(lg) {
+        & {}
+    }
+    @include media-breakpoint-only(xl) {
+        & {}
+    }
+}

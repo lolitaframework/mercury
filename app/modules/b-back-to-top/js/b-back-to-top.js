@@ -1,5 +1,5 @@
 $b_back_to_top = jQuery('.b-back-to-top');
-$scrollTrigger = 100;
+scrollTrigger = 100;
 
 back_to_top = function() {
 	var scrollTop = $(window).scrollTop();

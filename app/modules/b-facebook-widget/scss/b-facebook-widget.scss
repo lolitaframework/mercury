@@ -11,7 +11,6 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    padding-bottom: 45px;
     background-color: #fff;
     // media queries
     @include media-breakpoint-only(xs) {

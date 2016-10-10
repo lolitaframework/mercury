@@ -10,21 +10,52 @@
     width: 100%;
     padding-top: 15px;
     text-align: center;
+    @include mix(c-aside-title, caption) {
+        margin-bottom: 8px;
+    }
     @include element(items) {
         list-style: none;
         margin: 0;
         padding: 0;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
     }
     @include element(item) {
         display: block;
-        width: 160px;
-        height: 160px;
-        float: left;
+        width: 92px;
+        height: 92px;
+        margin-top: 12px;
     }
     @include element(link) {
         display: block;
     }
-    @include element(image) {}
+    @include element(image) {
+        display: block;
+        width: 92px;
+        height: 92px;
+    }
+    @include modifier(sly) {
+        @include element(items) {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        @include element(item) {
+            display: block;
+            width: 160px;
+            height: 160px;
+            float: left;
+        }
+        @include element(link) {
+            display: block;
+        }
+        @include element(image) {
+            display: block;
+            width: 160px;
+            height: 160px;
+        }
+    }
     // media queries
     @include media-breakpoint-only(xs) {
         & {}

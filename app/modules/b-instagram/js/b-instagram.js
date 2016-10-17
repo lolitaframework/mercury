@@ -2,7 +2,7 @@ $b_instagram = $('.b-instagram');
 $b_instagram_frame = $b_instagram.find('.b-instagram__frame');
 
 
-if ($b_instagram.hasClass('sly')) {
+if ($b_instagram.hasClass('b-instagram--sly')) {
     if (jQuery(window).width() > 767) {
         $b_instagram_frame.sly({
             horizontal: 1,

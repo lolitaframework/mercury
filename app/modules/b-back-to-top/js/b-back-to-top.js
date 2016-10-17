@@ -2,8 +2,7 @@ $b_back_to_top = jQuery('.b-back-to-top');
 scrollTrigger = 100;
 
 back_to_top = function() {
-	var scrollTop = $(window).scrollTop();
-	if (scrollTop > scrollTrigger) {
+	if (jQuery(window).scrollTop() > scrollTrigger) {
 		$b_back_to_top.addClass('b-back-to-top--visible');
 	} else {
 		$b_back_to_top.removeClass('b-back-to-top--visible');

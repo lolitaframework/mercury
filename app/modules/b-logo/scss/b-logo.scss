@@ -18,6 +18,7 @@
     @include modifier(black) {
         @include element(item) {
             background: url('../img/logo--black.svg') 0 0 no-repeat;
+            background-size: contain;
         }
     }
     @include media-breakpoint-only(xs) {

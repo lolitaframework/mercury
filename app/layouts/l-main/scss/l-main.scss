@@ -14,18 +14,35 @@
     @include element(content) {
         width: 750px;
     }
+    @include element(content-item) {
+        margin-bottom: 30px;
+        @include mix(b-pagination) {
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+    }
     @include element(sidebar) {
         width: 300px;
     }
-    @include element(content-item) {
-        margin-bottom: 30px;
-    }
-    @include mix(b-pagination, content-item) {
-        margin-top: 60px;
-        margin-bottom: 60px;
-    }
     @include element(sidebar-item) {
         margin-bottom: 45px;
+    }
+    // full width
+    @include modifier(full-width) {
+        @include element(inner) {
+            display: block;
+        }
+        @include element(content) {
+            width: 100%;
+        }
+        @include element(sidebar) {
+            @include make-row();
+            width: auto;
+        }
+        @include element(sidebar-item) {
+            @include make-col(4);
+            @include make-col-ready(30px);
+        }
     }
     // media queries
     @include media-breakpoint-only(xs) {

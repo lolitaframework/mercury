@@ -8,7 +8,6 @@
 //
 @include block(b-instagram) {
     width: 100%;
-    padding-top: 15px;
     text-align: center;
     @include mix(c-aside-title, caption) {
         margin-bottom: 8px;
@@ -36,6 +35,7 @@
         height: 92px;
     }
     @include modifier(sly) {
+        padding-top: 15px;
         @include element(items) {
             list-style: none;
             margin: 0;

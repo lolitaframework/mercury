@@ -14,12 +14,12 @@ namespace LolitaFramework.Layouts {
 		 * Main menu object
 		 * @type {JQuery}
 		 */
+		private mainMenu: JQuery;
 		
 		/**
 		 * Search panel object
 		 * @type {JQuery}
 		 */
-		private mainMenu: JQuery;
 		private search: JQuery;
 
 		/**

@@ -3207,11 +3207,11 @@ interface JQuery {
     up(elem: JQuery): JQuery;
     elem(elemKey: string): JQuery;
     getMod(modKey: string): string;
-    hasMod(modKey: string, modVal: string): boolean;
-    setMod(modKey: string, modVal: string): JQuery;
-    delMod(modKey: string, modVal: string): JQuery;
-    byMod(modKey: string, modVal: string): JQuery;
-    byNotMod(modKey: string, modVal: string): JQuery;
+    hasMod(modKey: string, modVal?: string): boolean;
+    setMod(modKey: string, modVal?: string): JQuery;
+    delMod(modKey: string, modVal?: string): JQuery;
+    byMod(modKey: string, modVal?: string): JQuery;
+    byNotMod(modKey: string, modVal?: string): JQuery;
 
 }
 declare module "jquery" {

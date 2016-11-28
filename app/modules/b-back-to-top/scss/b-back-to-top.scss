@@ -14,7 +14,8 @@
     border: none;
     background: #000 url('../img/top-arrow--white.svg') 50% 50% no-repeat;
     background-size: 12px 8px;
-    @include modifier(visible) {
+    outline: none;
+    @include modifier(visible--yes) {
         display: block;
         animation-name: opacity-transition-animation;
         animation-duration: 0.7s;

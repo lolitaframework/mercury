@@ -9,7 +9,7 @@
     display: flex !important;
     align-items: flex-start;
     transition: 0.2s all;
-    &:hover {
+    @include modifier(active) {
     	@include mix(c-text, text) {
     		h3 {
     			transition: 0.2s all;

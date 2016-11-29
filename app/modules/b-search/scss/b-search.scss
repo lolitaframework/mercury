@@ -63,12 +63,15 @@
         background-color: #fff;
         list-style: none;
         margin: 0;
-        padding: 25px 20px;
+        padding: 0;
+        overflow: hidden;
     }
     @include element(item) {
         margin-bottom: 25px;
-        &:last-child {
-            margin-bottom: 0;
+        margin-left: 20px;
+        margin-right: 20px;
+        &:first-child {
+            margin-top: 25px;
         }
     }
     @include element(link) {

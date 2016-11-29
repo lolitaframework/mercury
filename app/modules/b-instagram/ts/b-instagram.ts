@@ -10,11 +10,11 @@ namespace LolitaFramework.Blocks {
         constructor(blockName: string) {
             super(blockName);
 
-            let blockFrame: any = this.block.find('.b-instagram__frame');
-
             jQuery(this.block).each(
             	(index, item) => {
-		    		if (jQuery(item).hasClass('b-instagram--sly')) {
+            		let block = jQuery(item);
+		    		if (block.hasClass('b-instagram--sly') === true) {
+		    			let blockFrame: any = block.find('.b-instagram__frame');
 		        		if (jQuery(window).width() > 767) {
 		            		blockFrame.sly(
 			            		{

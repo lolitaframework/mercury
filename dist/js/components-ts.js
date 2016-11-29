@@ -1,0 +1,2 @@
+var __extends=this&&this.__extends||function(n,t){function o(){this.constructor=n}for(var r in t)t.hasOwnProperty(r)&&(n[r]=t[r]);n.prototype=null===t?Object.create(t):(o.prototype=t.prototype,new o)},LolitaFramework;!function(n){var t;!function(t){var o=function(n){function t(t){n.call(this,t);var o=this.block.find(".c-share-on__link");o.on("click",function(n){n.preventDefault()})}return __extends(t,n),t}(n.Block);t.ShareOn=o,t.shareOn=new o(".c-share-on")}(t=n.Blocks||(n.Blocks={}))}(LolitaFramework||(LolitaFramework={}));
+//# sourceMappingURL=components-ts.js.map

@@ -17,7 +17,6 @@ namespace LolitaFramework.Blocks {
             		searchLink.on('click', 
             			() => {
             				jQuery('body').trigger('b-main-menu__link--search::click');
-            				console.log('b-main-menu__link--search::click');
             			}
         			);
             	}

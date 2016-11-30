@@ -33,6 +33,36 @@
     }
     // media queries
     @include media-breakpoint-down(md) {
+        @include element(top) {
+            @include element(mb-search) {
+                @include text-hide();
+                display: block;
+                width: 15px;
+                height: 22px;
+                background: url('../img/search.svg') 50% 53% no-repeat;
+                background-size: 15px 22px;
+                position: absolute;
+                left: 15px;
+                top: 50%;
+                margin-top: -11px;
+                cursor: pointer;
+                z-index: 0;
+            }
+            @include element(mb-menu) {
+                @include text-hide();
+                display: block;
+                width: 17px;
+                height: 12px;
+                background: url('../img/bars.svg') 50% 50% no-repeat;
+                background-size: contain;
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                margin-top: -6px;
+                cursor: pointer;
+                z-index: 0;
+            }
+        }
         @include element(top-item) {
             @include mix(b-logo) {
                 left: 50%;

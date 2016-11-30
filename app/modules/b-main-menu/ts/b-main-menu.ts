@@ -44,8 +44,7 @@ namespace LolitaFramework.Blocks {
         /**
          * Constructor
          */
-        constructor(menu_selector: string = null, sub_menu_selector: string = null) {
-
+        constructor(menu_selector: string, sub_menu_selector: string) {
             if (menu_selector == null) {
                 console.log('%c You should provide the menu selector', 'color: red');
                 return;
@@ -237,6 +236,8 @@ namespace LolitaFramework.Blocks {
         }
     }
 
+    export let multilevelMenu = new MultilevelMenu('.b-main-menu--multilevel', 
+                                                   '.c-drop-down-list');
 
     export class MainMenu extends LolitaFramework.MediaBreakpoints {
         /**
@@ -260,33 +261,9 @@ namespace LolitaFramework.Blocks {
          */
         protected onBreakpointChange(breakpoint: Breakpoint) {
             if (breakpoint.name == 'sm' || breakpoint.name == 'md') {
-                this.block.each(
-                    (index, item) => {
-                        let curentItem = jQuery(item);
-
-                        if (!curentItem.find('.b-main-menu__mb-search').length) {
-                            let searchButton = jQuery('<span class="b-main-menu__mb-search">Search</span>');
-                            searchButton.on('click', () => { this.searchClick() });
-                            curentItem.append(searchButton);
-                        }
-                        
-                        
-                        if (!curentItem.find('.b-main-menu__mb-menu').length) {
-                            let menuButton = jQuery('<span class="b-main-menu__mb-menu">Menu</span>');
-                            menuButton.on('click', () => { this.menuClick() });
-                            curentItem.append(menuButton);
-                        }
-                        
-                    }
-                );
+                multilevelMenu.enable();
             } else {
-                this.block.each(
-                    (index, item) => {
-                        let curentItem = jQuery(item);
-                        curentItem.find('.b-main-menu__mb-search').remove();
-                        curentItem.find('.b-main-menu__mb-menu').remove();
-                    }
-                );
+                multilevelMenu.disable();
             }
         }
 
@@ -302,9 +279,9 @@ namespace LolitaFramework.Blocks {
          */
         public menuClick() {
             
+
         }
     }
 
     export let mainMenu = new MainMenu('.b-main-menu');
-    export let multilevelMenu = new MultilevelMenu('.b-main-menu--multilevel');
 }

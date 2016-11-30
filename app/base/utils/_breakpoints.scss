@@ -35,7 +35,7 @@
 //    767px
 @function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
   $next: breakpoint-next($name, $breakpoints);
-  @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
+  @return if($next, breakpoint-min($next, $breakpoints) - 1, null);
 }
 
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.

@@ -74,8 +74,8 @@ namespace LolitaFramework.Layouts {
 			} else {
 				this.logo.show();
 				this.mainMenu.show();
-				this.mbSearch.show();
-				this.mbMenu.show();
+				this.mbSearch.hide();
+				this.mbMenu.hide();
 				this.search.hide();
 			}
 		}

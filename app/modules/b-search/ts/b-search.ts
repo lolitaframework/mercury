@@ -2,13 +2,14 @@
 /// <reference path='../../../general/ts/core.ts' />
 
 namespace LolitaFramework.Blocks {
-    export class Search extends LolitaFramework.Block {
+    export class Search extends LolitaFramework.MediaBreakpoints {
         
         /**
          * Current Item
          * @type {JQuery}
          */
         public currentItem: JQuery;
+
         
         /**
          * Constructor
@@ -74,6 +75,14 @@ namespace LolitaFramework.Blocks {
 
                 }
             );
+        }
+
+        /** 
+         * On Device Change
+         * @param {Breakpoint} breakpoint [description]
+         */
+        protected onResize(breakpoint: Breakpoint) {
+            this.closeClick();
         }
 
         /**

@@ -101,12 +101,12 @@ namespace LolitaFramework {
 
 			if (currentDeviceType != MediaBreakpoints.currentDeviceType) {
 				MediaBreakpoints.currentDeviceType = currentDeviceType;
-				this.onBreakpointChange(currentDeviceType);
 				if (currentDeviceType == undefined) {
 					console.warn('Current device type is undefined');
 				} else {
 					console.info('Current device type is: ' + MediaBreakpoints.currentDeviceType.name);
 				}
+				this.onBreakpointChange(currentDeviceType);
 			}
 		}
 

@@ -122,19 +122,37 @@
         }
     }
     //media queries
-    @include media-breakpoint-only(xs) {
-        & {}
-    }
-    @include media-breakpoint-only(sm) {
-        & {}
-    }
-    @include media-breakpoint-only(md) {
-        & {}
-    }
-    @include media-breakpoint-only(lg) {
-        & {}
-    }
-    @include media-breakpoint-only(xl) {
-        & {}
+    @include media-breakpoint-down(md) {
+        @include modifier(header) {
+            @include element(items) {
+                display: none;
+            }
+            @include element(mb-search) {
+                @include text-hide();
+                display: block;
+                width: 15px;
+                height: 22px;
+                background: url('../img/search.svg') 50% 53% no-repeat;
+                background-size: 15px 22px;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                margin-top: -11px;
+                cursor: pointer;
+            }
+            @include element(mb-menu) {
+                @include text-hide();
+                display: block;
+                width: 17px;
+                height: 12px;
+                background: url('../img/bars.svg') 50% 50% no-repeat;
+                background-size: contain;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                margin-top: -6px;
+                cursor: pointer;
+            }
+        }
     }
 }

@@ -32,19 +32,20 @@
         }
     }
     // media queries
-    @include media-breakpoint-only(xs) {
-        & {}
-    }
-    @include media-breakpoint-only(sm) {
-        & {}
-    }
-    @include media-breakpoint-only(md) {
-        & {}
-    }
-    @include media-breakpoint-only(lg) {
-        & {}
-    }
-    @include media-breakpoint-only(xl) {
-        & {}
+    @include media-breakpoint-down(md) {
+        @include element(top-item) {
+            @include mix(b-logo) {
+                left: 50%;
+                margin-left: -75px;
+            }
+            @include mix(b-main-menu) {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 15px;
+                left: 15px;
+            }
+        }
+        
     }
 }

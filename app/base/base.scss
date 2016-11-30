@@ -15,4 +15,6 @@ html {
 body {
     background-color: $body-bg;
     color: $body-color;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+	-webkit-font-smoothing: antialiased !important;
 }

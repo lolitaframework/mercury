@@ -23,6 +23,7 @@
         max-width: 300px;
     }
     @include element(item) {
+        margin-bottom: 10px;
         &:hover {
             @include element(link) {
             transition: 0.2s all;
@@ -49,7 +50,7 @@
         transition: 0.2s all;
         font-weight: 100;
         font-size: 14px;
-        color: #E6E6E6;
+        color: #ddd;
         letter-spacing: -0.14px;
 
     }

@@ -6,8 +6,8 @@
 //
 //
 @include block(c-share-on) {
-    width: 110px;
-    padding: 10px 5px 10px 10px;
+    width: 116px;
+    padding: 8px;
     background-color: #F6F6F6;
     @include element(title) {
         font-weight: 600;
@@ -29,9 +29,9 @@
         transition: 0.2s all;
         position: relative;
         display: block;
-        padding-left: 15px;
+        padding-left: 18px;
         font-size: 12px !important;
-        line-height: 17px;
+        line-height: 18px;
         color: #999191;
         letter-spacing: 0px;
         text-transform: uppercase;
@@ -41,32 +41,19 @@
             transition: 0.2s all;
             color: #08C;
         }
-        &:before {
-            display: block;
-            width: 10px;
-            height: 17px;
-            line-height: 17px;
-            position: absolute;
-            left: 0;
-            top: -1px;
-            font-size: 10px;
-            vertical-align: middle;
-            text-align: center;
-        }
-        @include modifier(facebook) {
-            @include fa-icon($fa-var-facebook-f);
-        }
-        @include modifier(twitter) {
-            @include fa-icon($fa-var-twitter);
-        }
-        @include modifier(pinterest) {
-            @include fa-icon($fa-var-pinterest-p);
-        }
-        @include modifier(googleplus) {
-            @include fa-icon($fa-var-google-plus-square);
-        }
-        @include modifier(linkedin) {
-            @include fa-icon($fa-var-linkedin);
+        i {
+            &:before {
+                display: block;
+                width: 10px;
+                height: 17px;
+                line-height: 17px;
+                position: absolute;
+                left: 0;
+                top: 0px;
+                font-size: 10px;
+                vertical-align: middle;
+                text-align: center;
+            }
         }
     }
     @include media-breakpoint-only(xs) {

@@ -3,6 +3,7 @@
 
 namespace LolitaFramework.Blocks {
     export class Search extends LolitaFramework.Block {
+        
         /**
          * Current Item
          * @type {JQuery}

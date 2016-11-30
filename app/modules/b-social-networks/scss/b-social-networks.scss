@@ -26,45 +26,26 @@
         border-radius: 100%;
         overflow: hidden;
         vertical-align: middle;
-
-        &:before {
-        	transition: 0.2s all;
-        	color: #000;
-        	background-color: #fff;
-        	font-size: 14px;
-        	line-height: 35px;
-        	position: absolute;
-        	top: 0;
-        	bottom: 0;
-        	right: 0;
-        	left: 0;
-        	text-align: center;
-        	vertical-align: middle;
+        transition: 0.2s all;
+        color: #000;
+        background-color: #fff;
+        &:hover {
+            transition: 0.2s all;
+            color: #fff;
+            background-color: #000;
         }
-
-        &:hover:before {
-        	transition: 0.2s all;
-        	color: #fff;
-        	background-color: #000;
-        }
-
-        @include modifier(facebook) {
-        	@include fa-icon($fa-var-facebook-f);        	
-        }
-        @include modifier(twitter) {
-        	@include fa-icon($fa-var-twitter);	
-        }
-        @include modifier(pinterest) {
-        	@include fa-icon($fa-var-pinterest-p);
-        }
-        @include modifier(googleplus) {
-        	@include fa-icon($fa-var-google-plus-square);
-        }
-        @include modifier(instagram) {
-        	@include fa-icon($fa-var-instagram);
-        }
-        @include modifier(linkedin) {
-			@include fa-icon($fa-var-linkedin);
+        i {
+            &:before {
+                font-size: 14px;
+                line-height: 35px;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                text-align: center;
+                vertical-align: middle;
+            }
         }
     }
     // media queries

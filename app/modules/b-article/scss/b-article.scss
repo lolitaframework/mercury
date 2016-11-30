@@ -53,8 +53,9 @@
         justify-content: space-between;
         margin-bottom: 20px;
     }
-    @include element(text) {
+    @include mix(c-text, text) {
         padding-right: 30px;
+        font-weight: 100;
     }
     @include element(share-on) {
         flex-shrink: 0;

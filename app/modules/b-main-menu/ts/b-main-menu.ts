@@ -152,7 +152,6 @@ namespace LolitaFramework.Blocks {
                     'display': 'block',
                     'position': 'absolute',
                     'z-index': new_z_index,
-                    'background-color': '#6DBDB8',
                     'top': '0px',
                     'left': this.$menu.outerWidth() + 'px'
                 }
@@ -201,7 +200,7 @@ namespace LolitaFramework.Blocks {
          */
         public enable() {
             // set main menu container parameters
-            this.$menu.css({ 'position': 'relative', 'overflow': 'hidden', 'background-color': '#6DBDB8' });
+            this.$menu.css({ 'position': 'relative', 'overflow': 'hidden' });
 
             // select and hide all sub-menus
             var $sub_menu_items = jQuery(this.sub_menu_selector).hide();
@@ -262,7 +261,6 @@ namespace LolitaFramework.Blocks {
          * @param {Breakpoint} breakpoint [description]
          */
         protected onBreakpointChange(breakpoint: Breakpoint) {
-            console.log('hello');
             if (breakpoint.name == 'sm' || breakpoint.name == 'md') {
                 multilevelMenu.enable();
             } else {

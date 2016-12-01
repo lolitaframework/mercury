@@ -37,6 +37,58 @@
             }
         }
     }
+    @include media-breakpoint-down(md) {
+        background-color: #fff !important;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        @include element(item) {
+            position: relative;
+            border-bottom: solid 1px #bfbfbf;
+            &:first-child {
+                border-top: solid 1px #bfbfbf;
+            }
+            @include modifier(back-button) {
+                @include element(link) {
+                    &:after {
+                        transform: rotate(90deg);
+                        content: ' ';
+                        display: block;
+                        width: 12px;
+                        height: 8px;
+                        background: url('../img/arrow_down--black.svg') 0 0 no-repeat;
+                        position: absolute;
+                        top: 50%;
+                        margin-top: -6px;
+                        right: 15px;
+                    }
+                }
+            }
+        }
+        @include element(link) {
+            position: relative;
+            display: block;
+            padding: 15px 13px;
+            font-size: 16px;
+            line-height: 18px;
+            text-decoration: none;
+            color: #000;
+            @include modifier(has-submenu) {
+                &:after {
+                    transform: rotate(-90deg);
+                    content: ' ';
+                    display: block;
+                    width: 12px;
+                    height: 8px;
+                    background: url('../img/arrow_down--black.svg') 0 0 no-repeat;
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -6px;
+                    right: 15px;
+                }
+            }
+        }
+    }
 }
 
 //dropdown animation

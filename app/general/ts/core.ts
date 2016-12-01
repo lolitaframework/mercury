@@ -54,14 +54,20 @@ namespace LolitaFramework {
 		 * Current device type
 		 * @type {Breakpoint}
 		 */
-		protected static currentDeviceType: Breakpoint;
+		protected currentDeviceType: Breakpoint;
 
 		/**
 		 * Constructor
 		 */
 		constructor(blockSelector: string) {
 			super(blockSelector);
-			jQuery(window).on('resize', 
+		}
+
+		/**
+		 * Init Mediabreakpoints
+		 */
+		protected init() {
+			jQuery(window).on('resize',
 				() => {
 					this.onResize();
 				}
@@ -95,16 +101,16 @@ namespace LolitaFramework {
 				if (currentWidth <= breakpoint.upValue) {
 					currentDeviceType = breakpoint;
 				} else {
-					break;
+					// break;
 				}
 			}
 
-			if (currentDeviceType != MediaBreakpoints.currentDeviceType) {
-				MediaBreakpoints.currentDeviceType = currentDeviceType;
+			if (currentDeviceType != this.currentDeviceType) {
+				this.currentDeviceType = currentDeviceType;
 				if (currentDeviceType == undefined) {
 					console.warn('Current device type is undefined');
 				} else {
-					console.info('Current device type is: ' + MediaBreakpoints.currentDeviceType.name);
+					console.info('Current device type is: ' + this.currentDeviceType.name);
 				}
 				this.onBreakpointChange(currentDeviceType);
 			}

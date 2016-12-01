@@ -40,14 +40,15 @@ namespace LolitaFramework.Layouts {
 		 */
 		constructor(blockName: string) {
 			super(blockName);
+			
 			this.logo     = this.block.find('.b-logo.l-header__top-item');
 			this.mainMenu = this.block.find('.b-main-menu.l-header__top-item');
 			this.search   = this.block.find('.b-search.l-header__top-item');
-			this.mbSearch   = this.block.find('.l-header__top__mb-search');
-			this.mbMenu   = this.block.find('.l-header__top__mb-menu');
 
 			jQuery('body').on('b-main-menu__link--search::click', () => { this.openSearch() });
 			jQuery('body').on('b-search__close::click', () => { this.closeSearch() });
+
+			this.init();
 		}
 
 		/**
@@ -65,8 +66,8 @@ namespace LolitaFramework.Layouts {
 		 * Close Search panel
 		 */
 		public closeSearch() {
-			if (LolitaFramework.MediaBreakpoints.currentDeviceType.name == 'sm' ||
-				LolitaFramework.MediaBreakpoints.currentDeviceType.name == 'md') {
+			if (this.currentDeviceType.name == 'sm' ||
+				this.currentDeviceType.name == 'md') {
 				this.logo.show();
 				this.mbSearch.show();
 				this.mbMenu.show();
@@ -80,6 +81,13 @@ namespace LolitaFramework.Layouts {
 			}
 		}
 
+		/**
+		 * Open MB Menu
+		 */
+		public toggleMbMenu() {
+			this.mainMenu.toggle();
+		}
+
         /**
          * Add buttons for mobiles and tablets
          * @param {Breakpoint} breakpoint [description]
@@ -88,23 +96,24 @@ namespace LolitaFramework.Layouts {
             if (breakpoint.name == 'sm' || breakpoint.name == 'md') {
                 this.block.each(
                     (index, item) => {
-                        let curentItem = jQuery(item).find('.l-header__top');
+                        let curentItem = jQuery(item).find('.l-header__top > .container');
 
                         if (!curentItem.find('.l-header__top__mb-search').length) {
                             let searchButton = jQuery('<span class="l-header__top__mb-search">Search</span>');
-                            searchButton.on('click', () => { LolitaFramework.Blocks.mainMenu.searchClick() });
+                            searchButton.on('click', () => { this.openSearch() });
                             curentItem.append(searchButton);
                         }
                         
                         
                         if (!curentItem.find('.l-header__top__mb-menu').length) {
                             let menuButton = jQuery('<span class="l-header__top__mb-menu">Menu</span>');
-                            menuButton.on('click', () => { LolitaFramework.Blocks.mainMenu.menuClick() });
+                            menuButton.on('click', () => { this.toggleMbMenu() });
                             curentItem.append(menuButton);
                         }
                         
                     }
                 );
+                this.mainMenu.hide();
             } else {
                 this.block.each(
                     (index, item) => {
@@ -114,6 +123,8 @@ namespace LolitaFramework.Layouts {
                     }
                 );
             }
+			this.mbSearch   = this.block.find('.l-header__top__mb-search');
+			this.mbMenu   = this.block.find('.l-header__top__mb-menu');
         }
 	}
 

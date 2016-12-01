@@ -253,6 +253,8 @@ namespace LolitaFramework.Blocks {
             		searchLink.on('click', () => {this.searchClick(); } );
             	}
         	);
+
+            this.init();
         }
 
         /**
@@ -260,6 +262,7 @@ namespace LolitaFramework.Blocks {
          * @param {Breakpoint} breakpoint [description]
          */
         protected onBreakpointChange(breakpoint: Breakpoint) {
+            console.log('hello');
             if (breakpoint.name == 'sm' || breakpoint.name == 'md') {
                 multilevelMenu.enable();
             } else {
@@ -272,14 +275,6 @@ namespace LolitaFramework.Blocks {
          */
         public searchClick() {
             jQuery('body').trigger('b-main-menu__link--search::click');
-        }
-
-        /**
-         * Menu Click
-         */
-        public menuClick() {
-            
-
         }
     }
 

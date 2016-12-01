@@ -75,6 +75,8 @@ namespace LolitaFramework.Blocks {
 
                 }
             );
+
+            this.init();
         }
 
         /** 

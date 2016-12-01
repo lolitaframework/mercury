@@ -43,7 +43,6 @@
         margin: 0;
         padding: 0;
         @include element(item) {
-            position: relative;
             border-bottom: solid 1px #bfbfbf;
             &:first-child {
                 border-top: solid 1px #bfbfbf;

@@ -123,20 +123,43 @@
             max-height: 500px;
         }
     }
-    // media queries
-    @include media-breakpoint-only(xs) {
-        & {}
-    }
-    @include media-breakpoint-only(sm) {
-        & {}
-    }
-    @include media-breakpoint-only(md) {
-        & {}
-    }
-    @include media-breakpoint-only(lg) {
-        & {}
-    }
-    @include media-breakpoint-only(xl) {
-        & {}
+    @include media-breakpoint-down(md) {
+        @include element(item) {
+            height: 335px;
+            line-height: 335px;
+        }
+        @include modifier(article) {
+            @include element(item) {
+                max-height: none;
+                height: auto;
+            }
+        }
+        @include element(item-text) {
+            max-width: 290px;
+        }
+        @include element(prev) {
+            left: 10px;
+        }
+        @include element(next) {
+            right: 10px;
+        }
+        @include element(pager-item) {
+            width: 8px;
+            height: 8px;
+            margin-left: 12px;
+            margin-right: 12px;
+            @include modifier(current) {
+                width: 16px;
+                height: 16px;
+                margin-left: 8px;
+                margin-right: 8px;
+            }
+            &:hover {
+                width: 16px;
+                height: 16px;
+                margin-left: 8px;
+                margin-right: 8px;
+            }
+        }
     }
 }

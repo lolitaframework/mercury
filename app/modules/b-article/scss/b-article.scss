@@ -60,19 +60,20 @@
     @include element(share-on) {
         flex-shrink: 0;
     }
-    @include media-breakpoint-only(xs) {
-        & {}
-    }
-    @include media-breakpoint-only(sm) {
-        & {}
-    }
-    @include media-breakpoint-only(md) {
-        & {}
-    }
-    @include media-breakpoint-only(lg) {
-        & {}
-    }
-    @include media-breakpoint-only(xl) {
-        & {}
+    @include media-breakpoint-down(md) {
+        @include element(title) {
+            text-align: center;
+        }
+        @include element(meta) {
+            text-align: center;
+        }
+        @include element(content) {
+            flex-flow: column nowrap;
+            align-items: center;
+        }
+        @include mix(c-text, text) {
+            padding-right: 0;
+        }
+
     }
 }

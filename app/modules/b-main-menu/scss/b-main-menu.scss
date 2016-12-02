@@ -74,7 +74,7 @@
                     @include mix(c-drop-down-list, sub-menu) {
                         display: block;
                     }
-                    @include element(link) {
+                    .b-main-menu__link {
                         background-color: #fff;
                         color: #333333;
                         @include modifier(has-submenu) {
@@ -120,7 +120,7 @@
                 position: absolute;
                 left: 0;
                 top: 60px;
-            }
+            }   
         }
     }
     @include media-breakpoint-down(md) {

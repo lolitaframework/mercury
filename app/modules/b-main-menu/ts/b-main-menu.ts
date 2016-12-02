@@ -156,6 +156,8 @@ namespace LolitaFramework.Blocks {
          * Render back
          */
         private render_back(event: any) {
+            event.preventDefault();
+            
             if (this.disabled) {
                 return;
             }

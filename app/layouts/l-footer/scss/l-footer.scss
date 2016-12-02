@@ -13,14 +13,12 @@
             flex-flow: column wrap;
             align-items: flex-start;
             justify-content: flex-start;
-            
         }
         & .right {
             display: flex;
             flex-flow: column wrap;
             align-items: flex-end;
             justify-content: flex-end;
-
         }
     }
     @include element(common-item) {
@@ -44,11 +42,29 @@
         }
     }
     // media queries
-    @include media-breakpoint-only(xs) {
-    }
-    @include media-breakpoint-only(sm) {
-    }
-    @include media-breakpoint-only(md) {
+    @include media-breakpoint-down(md) {
+        @include element(common) {
+            padding: 0;
+            .row {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            & .left {
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            & .right {
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        @include mix(b-instagram, full-width-item) {
+            display: none;
+        }
+        @include mix(b-main-menu, common-item) {
+            display: none;
+        }
     }
     @include media-breakpoint-only(lg) {
         @include element(item) {
@@ -60,7 +76,5 @@
                 z-index: $zindex-modal;
             }
         }
-    }
-    @include media-breakpoint-only(xl) {
     }
 }

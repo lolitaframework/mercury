@@ -109,8 +109,6 @@ namespace LolitaFramework {
 				this.currentDeviceType = currentDeviceType;
 				if (currentDeviceType == undefined) {
 					console.warn('Current device type is undefined');
-				} else {
-					console.info('Current device type is: ' + this.currentDeviceType.name);
 				}
 				this.onBreakpointChange(currentDeviceType);
 			}

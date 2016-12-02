@@ -107,7 +107,12 @@ namespace LolitaFramework.Layouts {
                         
                         if (!curentItem.find('.l-header__top__mb-menu').length) {
                             let menuButton = jQuery('<span class="l-header__top__mb-menu">Menu</span>');
-                            menuButton.on('click', () => { this.toggleMbMenu() });
+                            menuButton.on('click', 
+                            	(event) => { 
+									jQuery(event.currentTarget).toggleClass('l-header__top__mb-menu--opened');
+                            		this.toggleMbMenu() 
+                            	}
+                        	);
                             curentItem.append(menuButton);
                         }
                         

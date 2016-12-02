@@ -82,6 +82,21 @@
     }
     // media queries
     @include media-breakpoint-down(md) {
+        @include element(form) {
+            background-color: #fff;
+            margin-left: -15px;
+            margin-right: -15px;
+            padding-left: 50px;
+            padding-right: 45   px;
+            &:before {
+                left: 15px;
+                background: url('../img/search--black.svg') 0 0 no-repeat;
+            }
+        }
+        @include element(close) {
+            right: 15px;
+            background: url('../img/close--black.svg') 0 0 no-repeat;
+        }
         @include element(results) {
             margin-left: -15px;
             margin-right: -15px;

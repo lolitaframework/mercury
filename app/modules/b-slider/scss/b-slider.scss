@@ -123,6 +123,15 @@
             max-height: 500px;
         }
     }
+    @include modifier(no-arrows) {
+        @include element(prev) {
+            display: none;
+        }
+        @include element(next) {
+            display: none;
+        }        
+    }
+
     @include media-breakpoint-down(md) {
         @include element(item) {
             height: 335px;

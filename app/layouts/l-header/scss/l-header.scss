@@ -61,6 +61,13 @@
                 margin-top: -6px;
                 cursor: pointer;
                 z-index: 0;
+                transition: 0.2s all;
+                @include modifier(opened) {
+                    transition: 0.2s all;
+                    width: 15px;
+                    height: 15px;
+                    background: url('../img/button-x-white.svg') 50% 50% no-repeat;   
+                }
             }
         }
         @include element(top-item) {

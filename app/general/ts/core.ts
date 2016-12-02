@@ -94,7 +94,7 @@ namespace LolitaFramework {
 				}
 			});
 
-			let currentWidth: number = <number>jQuery(window).width();
+			let currentWidth: number = <number>jQuery(document).width();
 			let currentDeviceType: Breakpoint;
 
 			for (let breakpoint of MediaBreakpoints.mediaBreakpoints) {

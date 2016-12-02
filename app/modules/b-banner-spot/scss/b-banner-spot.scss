@@ -6,12 +6,17 @@
 //
 //
 @include block(b-banner-spot) {
-    position: relative;
-    width: 100%;
-    max-width: 300px;
-    height: 250px;
-    background: url('../img/banner-placeholder.jpg') 50% 50% no-repeat;
-    background-size: contain;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    @include element(outer) {
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+        height: 250px;
+        background: url('../img/banner-placeholder.jpg') 50% 50% no-repeat;
+        background-size: contain;
+    }
     @include element(inner) {
         position: absolute;
         top: 20px;

@@ -120,7 +120,7 @@
   }
   @include modifier(article) {
     @include element(item) {
-      max-height: 500px;
+      height: auto;
     }
   }
   @include media-breakpoint-down(md) {

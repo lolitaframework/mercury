@@ -78,7 +78,6 @@
             background-color: #fff;
             color: #333333;
             @include modifier(has-submenu) {
-              background-color: #fff;
               color: #333333;
               background: #fff url('../img/arrow_down--black.svg') top 50% right 10px no-repeat;
             }
@@ -105,13 +104,12 @@
         @include modifier(has-submenu) {
           padding-right: 32px;
           background: url('../img/arrow_down.svg') top 50% right 10px no-repeat;
-          background-size: 12px 8px;
         }
         @include modifier(search) {
           @include text-hide();
           width: 15px;
           background: url('../img/search.svg') 50% 53% no-repeat;
-          background-size: 15px 22px;
+          background-size: 15px 15px;
         }
       }
       @include mix(c-drop-down-list,

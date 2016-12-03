@@ -93,6 +93,9 @@
         background: url('../img/search--black.svg') 0 0 no-repeat;
       }
     }
+    @include element(input) {
+      color: #333333;
+    }
     @include element(close) {
       right: 15px;
       background: url('../img/close--black.svg') 0 0 no-repeat;

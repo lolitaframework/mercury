@@ -69,5 +69,25 @@
         max-width: none;
       }
     }
+    // full width
+    @include modifier(full-width) {
+      @include element(inner) {
+        display: block;
+      }
+      @include element(content) {
+        width: 100%;
+      }
+      @include element(sidebar) {
+        @include make-row();
+        width: auto;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      @include element(sidebar-item) {
+        @include make-col(12);
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
   }
 }

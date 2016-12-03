@@ -4,7 +4,7 @@
 declare let Sly: any;
 
 namespace LolitaFramework.Blocks {
-    export class Instagram extends LolitaFramework.Block {
+    export class Instagram extends LolitaFramework.MediaBreakpoints {
         private slidersArray: Array<any> = [];
 
         /**
@@ -33,28 +33,28 @@ namespace LolitaFramework.Blocks {
                             dynamicHandle: 1
                         };
                         let sliderObject = new Sly(blockFrame, sliderArgs);
-                        sliderObject.init();
                         this.slidersArray.push(sliderObject);
                     }
                 }
             );
+            this.init();
         }
 
-        // /**
-        //  * On breakpoint change
-        //  * @param {Breakpoint} breakpoint [description]
-        //  */
-        // protected onBreakpointChange(breakpoint: Breakpoint) {
-        //     if (breakpoint.name == 'sm') {
-        //         for (let slider of this.slidersArray) {
-        //             slider.destroy();
-        //         }
-        //     } else {
-        //         for (let slider of this.slidersArray) {
-        //             slider.init();
-        //         }
-        //     }
-        // }
+        /**
+         * On breakpoint change
+         * @param {Breakpoint} breakpoint [description]
+         */
+        protected onBreakpointChange(breakpoint: Breakpoint) {
+            if (breakpoint.name == 'sm') {
+                for (let slider of this.slidersArray) {
+                    slider.destroy();
+                }
+            } else {
+                for (let slider of this.slidersArray) {
+                    slider.init();
+                }
+            }
+        }
     }
 
     export let instagram = new Instagram('.b-instagram');

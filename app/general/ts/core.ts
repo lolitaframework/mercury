@@ -118,7 +118,7 @@ namespace LolitaFramework {
          * Added breakpoint to mediaBreakpoints value
          * @param {Breakpoint} breakpoint description
          */
-        public static addMediaBreakpoin(breakpoint: Breakpoint): void {
+        public static addMediaBreakpoint(breakpoint: Breakpoint): void {
             if (!breakpoint.name) {
                 throw new RangeError('Breakpoint label should be not empty');
             }

@@ -6,75 +6,75 @@
 //
 //
 @include block(l-footer) {
+  @include element(common) {
+    padding: 30px 0;
+    & .left {
+      display: flex;
+      flex-flow: column wrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    & .right {
+      display: flex;
+      flex-flow: column wrap;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+  }
+  @include element(common-item) {
+    @include mix(b-logo--black) {
+      margin-top: 12px;
+    }
+    @include mix(b-main-menu--footer) {
+      margin-top: 3px;
+    }
+    @include mix(b-social-networks) {
+      margin-bottom: 4px;
+    }
+  }
+  @include element(item) {
+    @include mix(b-back-to-top) {
+      position: fixed;
+      right: 50%;
+      bottom: 0;
+      margin-right: -700px;
+      z-index: $zindex-modal;
+    }
+  }
+  // media queries
+  @include media-breakpoint-down(md) {
     @include element(common) {
-        padding: 30px 0;
-        & .left {
-            display: flex;
-            flex-flow: column wrap;
-            align-items: flex-start;
-            justify-content: flex-start;
-        }
-        & .right {
-            display: flex;
-            flex-flow: column wrap;
-            align-items: flex-end;
-            justify-content: flex-end;
-        }
+      padding: 0;
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      & .left {
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      & .right {
+        align-items: center;
+        justify-content: center;
+      }
     }
-    @include element(common-item) {
-        @include mix(b-logo--black) {
-            margin-top: 12px;
-        }
-        @include mix(b-main-menu--footer) {
-            margin-top: 3px;
-        }
-        @include mix(b-social-networks) {
-            margin-bottom: 4px;
-        }
+    @include mix(b-instagram, full-width-item) {
+      display: none;
     }
+    @include mix(b-main-menu, common-item) {
+      display: none;
+    }
+  }
+  @include media-breakpoint-only(lg) {
     @include element(item) {
-        @include mix(b-back-to-top) {
-            position: fixed;
-            right: 50%;
-            bottom: 0;
-            margin-right: -700px;
-            z-index: $zindex-modal;
-        }
+      @include mix(b-back-to-top) {
+        position: fixed;
+        right: 50%;
+        bottom: 0;
+        margin-right: -25px;
+        z-index: $zindex-modal;
+      }
     }
-    // media queries
-    @include media-breakpoint-down(md) {
-        @include element(common) {
-            padding: 0;
-            .row {
-                margin-left: 0;
-                margin-right: 0;
-            }
-            & .left {
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 20px;
-            }
-            & .right {
-                align-items: center;
-                justify-content: center;
-            }
-        }
-        @include mix(b-instagram, full-width-item) {
-            display: none;
-        }
-        @include mix(b-main-menu, common-item) {
-            display: none;
-        }
-    }
-    @include media-breakpoint-only(lg) {
-        @include element(item) {
-            @include mix(b-back-to-top) {
-                position: fixed;
-                right: 50%;
-                bottom: 0;
-                margin-right: -25px;
-                z-index: $zindex-modal;
-            }
-        }
-    }
+  }
 }

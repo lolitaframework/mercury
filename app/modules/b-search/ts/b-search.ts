@@ -3,14 +3,14 @@
 
 namespace LolitaFramework.Blocks {
     export class Search extends LolitaFramework.MediaBreakpoints {
-        
+
         /**
          * Current Item
          * @type {JQuery}
          */
         public currentItem: JQuery;
 
-        
+
         /**
          * Constructor
          * @param {string} blockName - name of the block
@@ -22,18 +22,20 @@ namespace LolitaFramework.Blocks {
                 (index, item) => {
                     let block = jQuery(item);
                     let closeButton = block.find('.b-search__close');
-                    closeButton.on('click', () => { this.closeClick(); });
+                    closeButton.on('click', () => {
+                        this.closeClick();
+                    });
 
                     // active/nonactive search-block for keypresses
-                    block.on('mouseenter', 
+                    block.on('mouseenter',
                         () => {
-                             block.addClass('b-search--active');
+                            block.addClass('b-search--active');
                         }
                     );
 
                     jQuery(document).on('mouseup',
                         (event) => {
-                            if (!block.is(event.target) 
+                            if (!block.is(event.target)
                                 && block.has(event.target).length === 0) {
                                 block.removeClass('b-search--active');
                             }
@@ -79,7 +81,7 @@ namespace LolitaFramework.Blocks {
             this.init();
         }
 
-        /** 
+        /**
          * On Device Change
          * @param {Breakpoint} breakpoint [description]
          */
@@ -91,7 +93,7 @@ namespace LolitaFramework.Blocks {
          * Close click
          */
         public closeClick() {
-        	jQuery('body').trigger('b-search__close::click');
+            jQuery('body').trigger('b-search__close::click');
         }
 
         /**

@@ -11,12 +11,14 @@ namespace LolitaFramework.Blocks {
             super(blockName);
 
             this.block.each(
-            	(index, item) => {
-            		let currentItem = jQuery(item);
-            		let form = currentItem.find('.b-newsletter__form');
-            		let emailField = currentItem.find('.b-newsletter__email');
-            		form.on('submit', (event) => { this.submitForm(event, emailField) } );
-            	}
+                (index, item) => {
+                    let currentItem = jQuery(item);
+                    let form = currentItem.find('.b-newsletter__form');
+                    let emailField = currentItem.find('.b-newsletter__email');
+                    form.on('submit', (event) => {
+                        this.submitForm(event, emailField)
+                    });
+                }
             );
         }
 
@@ -26,12 +28,12 @@ namespace LolitaFramework.Blocks {
          * @param {JQuery}                emailField [description]
          */
         private submitForm(event: BaseJQueryEventObject, emailField: JQuery) {
-        	if (!emailField.val()) {
-        		event.preventDefault();
-        		emailField.addClass('c-aside-field--error');
-        	} else {
-        		emailField.removeClass('c-aside-field--error');
-        	}
+            if (!emailField.val()) {
+                event.preventDefault();
+                emailField.addClass('c-aside-field--error');
+            } else {
+                emailField.removeClass('c-aside-field--error');
+            }
         }
     }
 

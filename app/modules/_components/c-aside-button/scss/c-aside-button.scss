@@ -6,39 +6,44 @@
 //
 //
 @include block(c-aside-button) {
+  transition: background-color 0.2s ease-out;
+  width: 100%;
+  max-width: 300px;
+  height: 45px;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: none;
+  font-weight: 100;
+  font-size: 14px;
+  color: #000;
+  letter-spacing: -0.14px;
+  outline: none;
+  &:hover {
     transition: background-color 0.2s ease-out;
-    width: 100%;
-    max-width: 300px;
-    height: 45px;
-    text-align: center;
-    border: 1px solid #000;
-    border-radius: 3px;
-    background: #fff;
-    box-shadow: none;
-    font-weight: 100;
-    font-size: 14px;
-    color: #000;
-    letter-spacing: -0.14px;
-    outline: none;
-    &:hover {
-        transition: background-color 0.2s ease-out;
-        background: #000;
-        color: #fff;
+    background: #000;
+    color: #fff;
+  }
+  // media queries
+  @include media-breakpoint-only(xs) {
+    & {
     }
-    // media queries
-    @include media-breakpoint-only(xs) {
-        & {}
+  }
+  @include media-breakpoint-only(sm) {
+    & {
     }
-    @include media-breakpoint-only(sm) {
-        & {}
+  }
+  @include media-breakpoint-only(md) {
+    & {
     }
-    @include media-breakpoint-only(md) {
-        & {}
+  }
+  @include media-breakpoint-only(lg) {
+    & {
     }
-    @include media-breakpoint-only(lg) {
-        & {}
+  }
+  @include media-breakpoint-only(xl) {
+    & {
     }
-    @include media-breakpoint-only(xl) {
-        & {}
-    }
+  }
 }

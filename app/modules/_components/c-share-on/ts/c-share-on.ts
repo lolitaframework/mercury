@@ -11,7 +11,9 @@ namespace LolitaFramework.Blocks {
             super(blockName);
 
             let links = this.block.find('.c-share-on__link');
-            links.on('click', (event) => { event.preventDefault() } );
+            links.on('click', (event) => {
+                event.preventDefault()
+            });
         }
     }
 

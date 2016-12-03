@@ -4,7 +4,7 @@
 <head>
     <title>lolitaframework</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="format-detection" content="telephone=no">
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
@@ -16,69 +16,76 @@
 </head>
 
 <body>
-    <header class="l-header">
-        <div class="l-header__top">
-            <div class="container">
-                @@include("b-logo.html", {"mod" : "", "mix" : "l-header__top-item"}) 
-                @@include("b-main-menu--header.html", {"mod" : "b-main-menu--header", "mix" : "l-header__top-item"})
-                @@include("b-search.html", {"mod" : "", "mix" : "l-header__top-item"})
-            </div>
-        </div>
-        <div class="l-header__bottom">
-            @@include("b-slider.html", {"mod" : "b-slider--no-arrows"})
-        </div>
-    </header>
-    <section class="l-three-columns">
+<header class="l-header">
+    <div class="l-header__top">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    @@include("b-promo.html", {"mod" : "", "mix" : "l-three-columns__item"})
-                </div>
-                <div class="col-lg-4">
-                    @@include("b-promo.html", {"mod" : "", "mix" : "l-three-columns__item"})
-                </div>
-                <div class="col-lg-4">
-                    @@include("b-promo.html", {"mod" : "", "mix" : "l-three-columns__item"})
-                </div>
+            @@include("b-logo.html", {"mod" : "", "mix" : "l-header__top-item"})
+            @@include("b-main-menu--header.html", {"mod" : "b-main-menu--header", "mix" : "l-header__top-item"})
+            @@include("b-search.html", {"mod" : "", "mix" : "l-header__top-item"})
+        </div>
+    </div>
+    <div class="l-header__bottom">
+        @@include("b-slider.html", {"mod" : "b-slider--no-arrows-mb"})
+    </div>
+</header>
+<section class="l-three-columns">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                @@include("b-promo.html", {"mod" : "", "mix" : "l-three-columns__item"})
+            </div>
+            <div class="col-lg-4">
+                @@include("b-promo.html", {"mod" : "", "mix" : "l-three-columns__item"})
+            </div>
+            <div class="col-lg-4">
+                @@include("b-promo.html", {"mod" : "", "mix" : "l-three-columns__item"})
             </div>
         </div>
-    </section>
-    <section class="l-main">
-        <div class="container">
-            <div class="l-main__inner">
-                <div class="l-main__content">
-                    @@include("b-article.html", {"mod" : "", "mix" : "l-main__content-item"})
-                    @@include("b-article2.html", {"mod" : "", "mix" : "l-main__content-item"})
-                    @@include("b-article3.html", {"mod" : "", "mix" : "l-main__content-item"})
-                    @@include("b-quote.html", {"mod" : "", "mix" : "l-main__content-item"})
-                    @@include("b-linked-article.html", {"mod" : "", "mix" : "l-main__content-item"})
-                    @@include("b-audio.html", {"mod" : "", "mix" : "l-main__content-item"})
-                    @@include("b-pagination.html", {"mod" : "", "mix" : "l-main__content-item"})
-                </div>
-                <aside class="l-main__sidebar">
-                    @@include("b-about-me.html", {"mod" : "", "mix" : "l-main__sidebar-item"}) @@include("b-subscribe-and-follow.html", {"mod" : "", "mix" : "l-main__sidebar-item"}) @@include("b-newsletter.html", {"mod" : "", "mix" : "l-main__sidebar-item"}) @@include("b-latest-posts.html", {"mod" : "", "mix" : "l-main__sidebar-item"}) @@include("b-categories.html", {"mod" : "", "mix" : "l-main__sidebar-item"}) @@include("b-instagram2.html", {"mod" : "", "mix" : "l-main__sidebar-item"}) @@include("b-banner-spot.html", {"mod" : "", "mix" : "l-main__sidebar-item"}) @@include("b-facebook-widget.html", {"mod" : "", "mix" : "l-main__sidebar-item"})
-                </aside>
+    </div>
+</section>
+<section class="l-main">
+    <div class="container">
+        <div class="l-main__inner">
+            <div class="l-main__content">
+                @@include("b-article.html", {"mod" : "", "mix" : "l-main__content-item"})
+                @@include("b-article2.html", {"mod" : "", "mix" : "l-main__content-item"})
+                @@include("b-article3.html", {"mod" : "", "mix" : "l-main__content-item"})
+                @@include("b-quote.html", {"mod" : "", "mix" : "l-main__content-item"})
+                @@include("b-linked-article.html", {"mod" : "", "mix" : "l-main__content-item"})
+                @@include("b-audio.html", {"mod" : "", "mix" : "l-main__content-item"})
+                @@include("b-pagination.html", {"mod" : "", "mix" : "l-main__content-item"})
+            </div>
+            <aside class="l-main__sidebar">
+                @@include("b-about-me.html", {"mod" : "", "mix" : "l-main__sidebar-item"})
+                @@include("b-subscribe-and-follow.html", {"mod" : "", "mix" : "l-main__sidebar-item"})
+                @@include("b-newsletter.html", {"mod" : "", "mix" : "l-main__sidebar-item"})
+                @@include("b-latest-posts.html", {"mod" : "", "mix" : "l-main__sidebar-item"})
+                @@include("b-categories.html", {"mod" : "", "mix" : "l-main__sidebar-item"})
+                @@include("b-instagram2.html", {"mod" : "", "mix" : "l-main__sidebar-item"})
+                @@include("b-banner-spot.html", {"mod" : "", "mix" : "l-main__sidebar-item"})
+                @@include("b-facebook-widget.html", {"mod" : "", "mix" : "l-main__sidebar-item"})
+            </aside>
+        </div>
+    </div>
+</section>
+<footer class="l-footer">
+    <div class="l-footer__full-width">
+        @@include("b-instagram.html", {"mod" : "b-instagram--sly", "mix" : "l-footer__full-width-item"})
+    </div>
+    <div class="l-footer__common container">
+        <div class="row">
+            <div class="col-lg-6 left">
+                @@include("b-logo.html", {"mod" : "b-logo--black", "mix" : "l-footer__common-item"})
+                @@include("b-main-menu--footer.html", {"mod" : "b-main-menu--footer", "mix" : "l-footer__common-item"})
+            </div>
+            <div class="col-lg-6 right">
+                @@include("b-social-networks.html", {"mod" : "", "mix" : "l-footer__common-item"})
+                @@include("b-copyright.html", {"mod" : "", "mix" : "l-footer__common-item"})
             </div>
         </div>
-    </section>
-    <footer class="l-footer">
-        <div class="l-footer__full-width">
-            @@include("b-instagram.html", {"mod" : "b-instagram--sly", "mix" : "l-footer__full-width-item"})
-        </div>
-        <div class="l-footer__common container">
-            <div class="row">
-                <div class="col-lg-6 left">
-                    @@include("b-logo.html", {"mod" : "b-logo--black", "mix" : "l-footer__common-item"}) 
-                    @@include("b-main-menu--footer.html", {"mod" : "b-main-menu--footer", "mix" : "l-footer__common-item"})
-                </div>
-                <div class="col-lg-6 right">
-                    @@include("b-social-networks.html", {"mod" : "", "mix" : "l-footer__common-item"}) 
-                    @@include("b-copyright.html", {"mod" : "", "mix" : "l-footer__common-item"}) 
-                </div>
-            </div>
-        </div>
-        @@include("b-back-to-top.html", {"mod" : "", "mix" : "l-footer__item"}) 
-    </footer>
+    </div>
+    @@include("b-back-to-top.html", {"mod" : "", "mix" : "l-footer__item"})
+</footer>
 </body>
 <!-- SCRIPTS -->
 <script src="./js/vendors.js" type="text/javascript" charset="utf-8"></script>

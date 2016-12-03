@@ -146,7 +146,7 @@ namespace LolitaFramework.Blocks {
                 }
             );
 
-            $sub_menu.animate({ 'left': '0px' }, 100);
+            $sub_menu.animate({'left': '0px'}, 100);
 
             // set current menu
             this.$current_menu = $sub_menu;
@@ -157,7 +157,7 @@ namespace LolitaFramework.Blocks {
          */
         private render_back(event: any) {
             event.preventDefault();
-            
+
             if (this.disabled) {
                 return;
             }
@@ -196,7 +196,7 @@ namespace LolitaFramework.Blocks {
             );
 
             // animate
-            this.$current_menu.animate({ 'left': this.$menu.outerWidth() + 'px' }, 100);
+            this.$current_menu.animate({'left': this.$menu.outerWidth() + 'px'}, 100);
 
             // set current menu
             this.$current_menu = $parent_menu;
@@ -207,7 +207,7 @@ namespace LolitaFramework.Blocks {
          */
         public enable() {
             // set main menu container parameters
-            this.$menu.css({ 'position': 'relative', 'overflow': 'hidden' });
+            this.$menu.css({'position': 'relative', 'overflow': 'hidden'});
 
             // select and hide all sub-menus
             var $sub_menu_items = jQuery(this.sub_menu_selector).hide();
@@ -242,8 +242,8 @@ namespace LolitaFramework.Blocks {
         }
     }
 
-    export let multilevelMenu = new MultilevelMenu('.b-main-menu--multilevel', 
-                                                   '.c-drop-down-list');
+    export let multilevelMenu = new MultilevelMenu('.b-main-menu--multilevel',
+        '.c-drop-down-list');
 
     export class MainMenu extends LolitaFramework.MediaBreakpoints {
         /**
@@ -254,11 +254,13 @@ namespace LolitaFramework.Blocks {
             super(blockName);
 
             this.block.each(
-            	(index, item) => {
-            		let searchLink: JQuery = jQuery(item).find('.b-main-menu__link--search');
-            		searchLink.on('click', () => {this.searchClick(); } );
-            	}
-        	);
+                (index, item) => {
+                    let searchLink: JQuery = jQuery(item).find('.b-main-menu__link--search');
+                    searchLink.on('click', () => {
+                        this.searchClick();
+                    });
+                }
+            );
 
             this.init();
         }

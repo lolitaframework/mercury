@@ -4,11 +4,11 @@
 namespace LolitaFramework.Blocks {
     export class BackToTop extends LolitaFramework.Block {
 
-    	/**
-    	 * Scroll Trigger in Pixels
-    	 * @type {number}
-    	 */
-    	private scrollTrigger: number = 100;
+        /**
+         * Scroll Trigger in Pixels
+         * @type {number}
+         */
+        private scrollTrigger: number = 100;
 
         /**
          * Constructor
@@ -17,21 +17,25 @@ namespace LolitaFramework.Blocks {
         constructor(blockName: string, scrollTrigger?: number) {
             super(blockName);
             if (scrollTrigger) {
-            	this.scrollTrigger = scrollTrigger;
+                this.scrollTrigger = scrollTrigger;
             }
-            jQuery(window).on('scroll', () => { this.backToTop() });
-            this.block.on('click', (event) => { this.onClick(event) });
+            jQuery(window).on('scroll', () => {
+                this.backToTop()
+            });
+            this.block.on('click', (event) => {
+                this.onClick(event)
+            });
         }
 
         /**
          * Back to top
          */
         public backToTop() {
-    		if (jQuery(window).scrollTop() > this.scrollTrigger) {
-				this.block.setMod('visible');
-			} else {
-				this.block.delMod('visible');
-			}
+            if (jQuery(window).scrollTop() > this.scrollTrigger) {
+                this.block.setMod('visible');
+            } else {
+                this.block.delMod('visible');
+            }
         }
 
         /**
@@ -39,8 +43,8 @@ namespace LolitaFramework.Blocks {
          * @param {BaseJQueryEventObject} event [description]
          */
         private onClick(event: BaseJQueryEventObject) {
-	    	event.preventDefault();
-	    	jQuery('html, body').animate({scrollTop: 0} , 700);
+            event.preventDefault();
+            jQuery('html, body').animate({scrollTop: 0}, 700);
         }
     }
 

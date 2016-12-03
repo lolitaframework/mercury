@@ -7,42 +7,48 @@
 //
 //
 @include block(b-latest-posts) {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-color: #fff;
+  @include mix(c-aside-title, title) {
+  }
+  @include element(items) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     width: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    background-color: #fff;
-    @include mix(c-aside-title, title) {}
-    @include element(items) {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        max-width: 300px;
+    max-width: 300px;
+  }
+  @include element(item) {
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
     }
-    @include element(item) {
-        margin-bottom: 20px;
-        &:last-child {
-            margin-bottom: 0;
-        }
+  }
+  @include mix(c-post-preview, link) {
+    display: block;
+  }
+  // media queries
+  @include media-breakpoint-only(xs) {
+    & {
     }
-    @include mix(c-post-preview, link) {
-        display: block;
+  }
+  @include media-breakpoint-only(sm) {
+    & {
     }
-    // media queries
-    @include media-breakpoint-only(xs) {
-        & {}
+  }
+  @include media-breakpoint-only(md) {
+    & {
     }
-    @include media-breakpoint-only(sm) {
-        & {}
+  }
+  @include media-breakpoint-only(lg) {
+    & {
     }
-    @include media-breakpoint-only(md) {
-        & {}
+  }
+  @include media-breakpoint-only(xl) {
+    & {
     }
-    @include media-breakpoint-only(lg) {
-        & {}
-    }
-    @include media-breakpoint-only(xl) {
-        & {}
-    }
+  }
 }

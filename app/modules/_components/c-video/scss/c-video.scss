@@ -6,14 +6,14 @@
 //
 //
 @include block(c-video) {
-	@include element(iframe) {
-		display: block;
-		width: 100%;
-		height: 500px;
-	}
-    @include media-breakpoint-down(md) {
-        @include element(iframe) {
-            height: 250px;
-        }
+  @include element(iframe) {
+    display: block;
+    width: 100%;
+    height: 500px;
+  }
+  @include media-breakpoint-down(md) {
+    @include element(iframe) {
+      height: 250px;
     }
+  }
 }

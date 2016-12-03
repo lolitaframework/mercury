@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: sketchtool 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
     <title>16A522E3-F587-4B19-AFBA-70F971360768</title>
     <desc>Created with sketchtool.</desc>
@@ -8,7 +9,8 @@
         <g id="Button-X-white" stroke="#FFFFFF">
             <g id="X">
                 <path d="M0.575378798,0.782485579 L14.7175144,14.9246212" id="Line"></path>
-                <path d="M0.575378798,0.782485579 L14.7175144,14.9246212" id="Line" transform="translate(7.646447, 7.853553) scale(-1, 1) translate(-7.646447, -7.853553) "></path>
+                <path d="M0.575378798,0.782485579 L14.7175144,14.9246212" id="Line"
+                      transform="translate(7.646447, 7.853553) scale(-1, 1) translate(-7.646447, -7.853553) "></path>
             </g>
         </g>
     </g>

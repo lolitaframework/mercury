@@ -6,169 +6,168 @@
 //
 //
 @include block(b-slider) {
-    position: relative;
+  position: relative;
+  width: 100%;
+  @include element(items) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  @include element(item) {
+    display: block;
+    text-align: center;
+    height: 670px;
+    line-height: 670px;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+  @include element(item-text) {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 780px;
+    font-weight: 100;
+    font-size: 44px;
+    color: #FFFFFF;
+    letter-spacing: -0.42px;
+    line-height: 59px;
+  }
+  @include element(image) {
+    display: block;
     width: 100%;
-    @include element(items) {
-        list-style: none;
-        margin: 0;
-        padding: 0;
+    height: auto;
+  }
+  @include element(prev) {
+    @include text-hide();
+    transition: 0.2s all;
+    display: block;
+    width: 48px;
+    height: 76px;
+    border: 1px solid transparent;
+    background: url('../img/controls_arrow.svg') 50% 50% no-repeat;
+    background-size: 16px 40px;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    left: 50px;
+    cursor: pointer;
+    z-index: 53;
+    &:hover {
+      transition: 0.2s all;
+      border: 1px solid #fff;
+      border-radius: 3px;
+    }
+  }
+  @include element(next) {
+    @include text-hide();
+    transition: 0.2s all;
+    transform: rotate(180deg);
+    display: block;
+    width: 48px;
+    height: 76px;
+    border: 1px solid transparent;
+    background: url('../img/controls_arrow.svg') 50% 50% no-repeat;
+    background-size: 16px 40px;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    right: 50px;
+    cursor: pointer;
+    z-index: 53;
+    &:hover {
+      transition: 0.2s all;
+      border: 1px solid #fff;
+      border-radius: 3px;
+    }
+  }
+  @include element(pager) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 26px;
+    z-index: 53;
+    text-align: center;
+  }
+  @include element(pager-item) {
+    @include text-hide();
+    transition: 0.4s all;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 100%;
+    margin-left: 16px;
+    margin-right: 16px;
+    vertical-align: middle;
+    cursor: pointer;
+    @include modifier(current) {
+      transition: 0.4s all;
+      width: 16px;
+      height: 16px;
+      margin-left: 12px;
+      margin-right: 12px;
+    }
+    &:hover {
+      transition: 0.4s all;
+      width: 16px;
+      height: 16px;
+      margin-left: 12px;
+      margin-right: 12px;
+    }
+  }
+  @include modifier(article) {
+    @include element(item) {
+      max-height: 500px;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    @include modifier(no-arrows-mb) {
+      @include element(prev) {
+        display: none;
+      }
+      @include element(next) {
+        display: none;
+      }
     }
     @include element(item) {
-        display: block;
-        text-align: center;
-        height: 670px;
-        line-height: 670px;
-        background-size: cover;
-        background-position: 50% 50%;
-    }
-    @include element(item-text) {
-        display: inline-block;
-        vertical-align: middle;
-        max-width: 780px;
-        font-weight: 100;
-        font-size: 44px;
-        color: #FFFFFF;
-        letter-spacing: -0.42px;
-        line-height: 59px;
-    }
-    @include element(image) {
-        display: block;
-        width: 100%;
-        height: auto;
-    }
-    @include element(prev) {
-        @include text-hide();
-        transition: 0.2s all;
-        display: block;
-        width: 48px;
-        height: 76px;
-        border: 1px solid transparent;
-        background: url('../img/controls_arrow.svg') 50% 50% no-repeat;
-        background-size: 16px 40px;
-        position: absolute;
-        top: 50%;
-        margin-top: -20px;
-        left: 50px;
-        cursor: pointer;
-        z-index: 53;
-        &:hover {
-            transition: 0.2s all;
-            border: 1px solid #fff;
-            border-radius: 3px;
-        }
-    }
-    @include element(next) {
-        @include text-hide();
-        transition: 0.2s all;
-        transform: rotate(180deg);
-        display: block;
-        width: 48px;
-        height: 76px;
-        border: 1px solid transparent;
-        background: url('../img/controls_arrow.svg') 50% 50% no-repeat;
-        background-size: 16px 40px;
-        position: absolute;
-        top: 50%;
-        margin-top: -20px;
-        right: 50px;
-        cursor: pointer;
-        z-index: 53;
-        &:hover {
-            transition: 0.2s all;
-            border: 1px solid #fff;
-            border-radius: 3px;
-        }
-    }
-    @include element(pager) {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 26px;
-        z-index: 53;
-        text-align: center;
-    }
-    @include element(pager-item) {
-        @include text-hide();
-        transition: 0.4s all;
-        display: inline-block;
-        box-sizing: border-box;
-        width: 8px;
-        height: 8px;
-        background-color: #fff;
-        border-radius: 100%;
-        margin-left: 16px;
-        margin-right: 16px;
-        vertical-align: middle;
-        cursor: pointer;
-        @include modifier(current) {
-            transition: 0.4s all;
-            width: 16px;
-            height: 16px;
-            margin-left: 12px;
-            margin-right: 12px;
-        }
-        &:hover {
-            transition: 0.4s all;
-            width: 16px;
-            height: 16px;
-            margin-left: 12px;
-            margin-right: 12px;
-        }
+      height: 335px;
+      line-height: 335px;
     }
     @include modifier(article) {
-        @include element(item) {
-            max-height: 500px;
-        }
+      @include element(item) {
+        max-height: none;
+        height: auto;
+      }
     }
-    @include modifier(no-arrows) {
-        @include element(prev) {
-            display: none;
-        }
-        @include element(next) {
-            display: none;
-        }        
+    @include element(item-text) {
+      max-width: 290px;
     }
-
-    @include media-breakpoint-down(md) {
-        @include element(item) {
-            height: 335px;
-            line-height: 335px;
-        }
-        @include modifier(article) {
-            @include element(item) {
-                max-height: none;
-                height: auto;
-            }
-        }
-        @include element(item-text) {
-            max-width: 290px;
-        }
-        @include element(prev) {
-            left: 10px;
-        }
-        @include element(next) {
-            right: 10px;
-        }
-        @include element(pager-item) {
-            width: 8px;
-            height: 8px;
-            margin-left: 12px;
-            margin-right: 12px;
-            @include modifier(current) {
-                width: 16px;
-                height: 16px;
-                margin-left: 8px;
-                margin-right: 8px;
-            }
-            &:hover {
-                width: 16px;
-                height: 16px;
-                margin-left: 8px;
-                margin-right: 8px;
-            }
-        }
+    @include element(prev) {
+      left: 10px;
     }
+    @include element(next) {
+      right: 10px;
+    }
+    @include element(pager-item) {
+      width: 8px;
+      height: 8px;
+      margin-left: 12px;
+      margin-right: 12px;
+      @include modifier(current) {
+        width: 16px;
+        height: 16px;
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+      &:hover {
+        width: 16px;
+        height: 16px;
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+    }
+  }
 }

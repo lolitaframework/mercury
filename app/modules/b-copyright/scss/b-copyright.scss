@@ -6,13 +6,13 @@
 //
 //
 @include block(b-copyright) {
-    font-size: 11px;
-    color: #A7A7A7;
-    letter-spacing: 0.1px;
-    line-height: 22px;
-    // media queries
-    @include media-breakpoint-down(md) {
-        font-size: 10px;
-        margin-bottom: 10px;
-    }
+  font-size: 11px;
+  color: #A7A7A7;
+  letter-spacing: 0.1px;
+  line-height: 22px;
+  // media queries
+  @include media-breakpoint-down(md) {
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
 }

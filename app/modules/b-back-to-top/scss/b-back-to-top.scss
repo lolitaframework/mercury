@@ -6,51 +6,56 @@
 //
 //
 @include block(b-back-to-top) {
-    @include text-hide();
-    display: none;
+  @include text-hide();
+  display: none;
+  transition: background-color 0.2s ease-out;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: #000 url('../img/top-arrow--white.svg') 50% 50% no-repeat;
+  background-size: 12px 8px;
+  outline: none;
+  @include modifier(visible--yes) {
+    display: block;
+    animation-name: opacity-transition-animation;
+    animation-duration: 0.7s;
+  }
+  &:hover {
     transition: background-color 0.2s ease-out;
-    width: 50px;
-    height: 50px;
-    border: none;
-    background: #000 url('../img/top-arrow--white.svg') 50% 50% no-repeat;
+    background: #fff url('../img/top-arrow--black.svg') 50% 50% no-repeat;
     background-size: 12px 8px;
-    outline: none;
-    @include modifier(visible--yes) {
-        display: block;
-        animation-name: opacity-transition-animation;
-        animation-duration: 0.7s;
+  }
+  // media queries
+  @include media-breakpoint-only(xs) {
+    & {
     }
-    &:hover {
-        transition: background-color 0.2s ease-out;
-        background: #fff url('../img/top-arrow--black.svg') 50% 50% no-repeat;
-        background-size: 12px 8px;
+  }
+  @include media-breakpoint-only(sm) {
+    & {
     }
-    // media queries
-    @include media-breakpoint-only(xs) {
-        & {}
+  }
+  @include media-breakpoint-only(md) {
+    & {
     }
-    @include media-breakpoint-only(sm) {
-        & {}
+  }
+  @include media-breakpoint-only(lg) {
+    & {
     }
-    @include media-breakpoint-only(md) {
-        & {}
+  }
+  @include media-breakpoint-only(xl) {
+    & {
     }
-    @include media-breakpoint-only(lg) {
-        & {}
-    }
-    @include media-breakpoint-only(xl) {
-        & {}
-    }
+  }
 }
 
 //opacity transition animation
 @keyframes opacity-transition-animation {
-    0% {
-        opacity: 0;
-        transition: 0.3s all;
-    }
-    100% {
-        opacity: 1;
-        transition: 0.3s all;
-    }
+  0% {
+    opacity: 0;
+    transition: 0.3s all;
+  }
+  100% {
+    opacity: 1;
+    transition: 0.3s all;
+  }
 }

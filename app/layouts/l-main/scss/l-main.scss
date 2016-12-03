@@ -6,68 +6,68 @@
 //
 //
 @include block(l-main) {
+  @include element(inner) {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  @include element(content) {
+    width: 750px;
+    margin-right: 30px;
+  }
+  @include element(content-item) {
+    margin-bottom: 30px;
+    @include mix(b-pagination) {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+  }
+  @include element(sidebar) {
+    width: 300px;
+  }
+  @include element(sidebar-item) {
+    margin-bottom: 45px;
+  }
+  // full width
+  @include modifier(full-width) {
     @include element(inner) {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
+      display: block;
     }
     @include element(content) {
-        width: 750px;
-        margin-right: 30px;
-    }
-    @include element(content-item) {
-        margin-bottom: 30px;
-        @include mix(b-pagination) {
-            margin-top: 60px;
-            margin-bottom: 60px;
-        }
+      width: 100%;
     }
     @include element(sidebar) {
-        width: 300px;
+      @include make-row();
+      width: auto;
     }
     @include element(sidebar-item) {
-        margin-bottom: 45px;
+      @include make-col(4);
+      @include make-col-ready(30px);
     }
-    // full width
-    @include modifier(full-width) {
-        @include element(inner) {
-            display: block;
-        }
-        @include element(content) {
-            width: 100%;
-        }
-        @include element(sidebar) {
-            @include make-row();
-            width: auto;
-        }
-        @include element(sidebar-item) {
-            @include make-col(4);
-            @include make-col-ready(30px);
-        }
+  }
+  // media queries
+  @include media-breakpoint-down(md) {
+    @include element(inner) {
+      flex-flow: column nowrap;
+      margin-left: -15px;
+      margin-right: -15px;
+      margin-top: 30px;
     }
-    // media queries
-    @include media-breakpoint-down(md) {
-        @include element(inner) {
-            flex-flow: column nowrap;
-            margin-left: -15px;
-            margin-right: -15px;
-            margin-top: 30px;
-        }
-        @include element(content) {
-            width: 100%;
-            margin-right: 0;
-        }
-        @include element(sidebar) {
-            width: 100%;
-        }
-        @include element(sidebar-item) {
-            @include mix(b-categories) {
-                display: none;
-            }
-            @include mix(b-banner-spot) {
-                width: auto;
-                max-width: none;
-            }
-        }
+    @include element(content) {
+      width: 100%;
+      margin-right: 0;
     }
+    @include element(sidebar) {
+      width: 100%;
+    }
+    @include element(sidebar-item) {
+      @include mix(b-categories) {
+        display: none;
+      }
+      @include mix(b-banner-spot) {
+        width: auto;
+        max-width: none;
+      }
+    }
+  }
 }

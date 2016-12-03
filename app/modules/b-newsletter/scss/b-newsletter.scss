@@ -7,50 +7,55 @@
 //
 //
 @include block(b-newsletter) {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  @include mix(c-aside-title, title) {
+    margin-bottom: 20px;
+  }
+  @include element(text) {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 100;
+    font-size: 14px;
+    color: #000000;
+    letter-spacing: -0.14px;
+    max-width: 300px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  @include element(form) {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     width: 100%;
-    @include mix(c-aside-title, title) {
-        margin-bottom: 20px;
-    }
-    @include element(text) {
-        margin-top: 0;
-        margin-bottom: 0;
-        font-weight: 100;
-        font-size: 14px;
-        color: #000000;
-        letter-spacing: -0.14px;
-        max-width: 300px;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    @include element(form) {
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-        width: 100%;
-    }
-    @include mix(c-aside-field, email) {
-        margin-bottom: 20px;
-    }
-    @include mix(c-aside-button, submit) {
+  }
+  @include mix(c-aside-field, email) {
+    margin-bottom: 20px;
+  }
+  @include mix(c-aside-button, submit) {
 
+  }
+  // media queries
+  @include media-breakpoint-only(xs) {
+    & {
     }
-    // media queries
-    @include media-breakpoint-only(xs) {
-        & {}
+  }
+  @include media-breakpoint-only(sm) {
+    & {
     }
-    @include media-breakpoint-only(sm) {
-        & {}
+  }
+  @include media-breakpoint-only(md) {
+    & {
     }
-    @include media-breakpoint-only(md) {
-        & {}
+  }
+  @include media-breakpoint-only(lg) {
+    & {
     }
-    @include media-breakpoint-only(lg) {
-        & {}
+  }
+  @include media-breakpoint-only(xl) {
+    & {
     }
-    @include media-breakpoint-only(xl) {
-        & {}
-    }
+  }
 }

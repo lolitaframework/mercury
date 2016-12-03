@@ -6,51 +6,51 @@
 //
 //
 @include block(b-promo) {
-	width: 340px;
-	height: 200px;
-	max-width: 100%;
-	background-position: 50% 50%;
-	background-size: 100% 100%;
-	padding: 15px;
-	&:hover {
-		transition: background-size 0.2s ease-in;
-		background-size: 250% 250%;
-		background-position: 20% 30%;
-	}
-	@include element(inner) {
-		display: flex;
-		flex-flow: row nowrap;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-		border: 1px solid #fff;
-		
-	}
-	@include element(link) {
-		display: block;
-		height: 32px;
-		line-height: 32px;
-		padding-left: 15px;
-		padding-right: 15px;
-		background-color: #fff;
-		font-size: 12px;
-		color: #000000;
-		letter-spacing: -0.12px;
-		text-transform: uppercase;
-		text-decoration: none;
+  width: 340px;
+  height: 200px;
+  max-width: 100%;
+  background-position: 50% 50%;
+  background-size: 100% 100%;
+  padding: 15px;
+  &:hover {
+    transition: background-size 0.2s ease-in;
+    background-size: 250% 250%;
+    background-position: 20% 30%;
+  }
+  @include element(inner) {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #fff;
 
-	}
-    @include media-breakpoint-only(md) {
-    	width: 100%;
-    	background-size: cover;
-    }
+  }
+  @include element(link) {
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #fff;
+    font-size: 12px;
+    color: #000000;
+    letter-spacing: -0.12px;
+    text-transform: uppercase;
+    text-decoration: none;
 
-    @include media-breakpoint-down(md) {
-    	width: auto;
-    	margin-left: -15px;
-    	margin-right: -15px;
-    	background-size: cover;
-    	max-width: none;
-    }
+  }
+  @include media-breakpoint-only(md) {
+    width: 100%;
+    background-size: cover;
+  }
+
+  @include media-breakpoint-down(md) {
+    width: auto;
+    margin-left: -15px;
+    margin-right: -15px;
+    background-size: cover;
+    max-width: none;
+  }
 }

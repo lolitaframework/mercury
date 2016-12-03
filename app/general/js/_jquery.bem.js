@@ -1,6 +1,6 @@
 /* @required jQuery */
 
-(function($, undefined) {
+(function ($, undefined) {
 
     /**
      * Config presets.
@@ -59,7 +59,7 @@
          * Init base class.
          * @private
          */
-        init: function() {
+        init: function () {
             this.setConfig();
             return this;
         },
@@ -72,7 +72,7 @@
          * @param  {String}  moduleName  Module namespace
          * @param  {Object}  object      Module object
          */
-        extend: function(moduleName, object) {
+        extend: function (moduleName, object) {
             this[moduleName] = object;
 
             if (this[moduleName].init != undefined) {
@@ -90,7 +90,7 @@
          * @param  {Object}         scope      Scope
          * @param  {Bool}           recursive  Recursive call
          */
-        decl: function(selector, props, scope, recursive) {
+        decl: function (selector, props, scope, recursive) {
             var self = this,
                 props = props || {},
                 scope = props,
@@ -105,12 +105,12 @@
 
             var selector = self._buildSelector(selector);
 
-            $.each(props, function(key, fn) {
+            $.each(props, function (key, fn) {
                 if (typeof fn == 'function') {
                     if (key.indexOf('on') == 0) {
                         var e = key.replace(/^on/, '').toLowerCase();
 
-                        $(document).on(e, selector, function(ev) {
+                        $(document).on(e, selector, function (ev) {
                             var args = Array.prototype.slice.call(arguments);
                             var $this = $(this);
                             $this.selector = selector;
@@ -129,7 +129,7 @@
                 }
             });
 
-            $(function() {
+            $(function () {
                 $(selector).trigger('init');
             });
         },
@@ -139,12 +139,12 @@
          * Reload all declarations.
          * @protected
          */
-        reload: function() {
+        reload: function () {
             var self = this,
                 _decls = decls;
             decls = [];
 
-            $.each(_decls, function(i, decl) {
+            $.each(_decls, function (i, decl) {
                 self.decl(decl.selector, decl.props);
             });
         },
@@ -157,7 +157,7 @@
          * @param  {Object}  [updSyntax]  Syntax sugar
          * @param  {Object}  [updConfig]  Configuration
          */
-        setConfig: function(updSyntax, updConfig) {
+        setConfig: function (updSyntax, updConfig) {
             var updSyntax = updSyntax || {},
                 updConfig = updConfig || {};
 
@@ -175,11 +175,12 @@
          * @param  {String}  elem   Nested element
          * @return {Object}
          */
-        getBlock: function($this, elem) {
+        getBlock: function ($this, elem) {
             var elem = elem || null,
                 blockClass = this._getBlockClass($this),
                 block = $this.closest('.' + blockClass)
-            block.selector = blockClass;;
+            block.selector = blockClass;
+            ;
 
             if (elem) {
                 return block.elem(elem);
@@ -197,7 +198,7 @@
          * @param  {String}  elemKey  Element name
          * @return {Object}
          */
-        findElem: function($this, elemKey) {
+        findElem: function ($this, elemKey) {
             var self = this,
                 blockClass = self._getBlockClass($this);
 
@@ -216,7 +217,7 @@
          * @param  {String}  modKey  Modifier key
          * @return {String}
          */
-        getMod: function($this, modKey) {
+        getMod: function ($this, modKey) {
             var mods = this._extractMods($this.first());
 
             if (mods[modKey] != undefined) return mods[modKey];
@@ -233,7 +234,7 @@
          * @param  {String}  [modVal]  Modifier value
          * @return {Bool}
          */
-        hasMod: function($this, modKey, modVal) {
+        hasMod: function ($this, modKey, modVal) {
             var mods = this._extractMods($this.first()),
                 modVal = modVal || null;
 
@@ -256,12 +257,12 @@
          * @param  {String}  [modVal]  Modifier value
          * @param  {Object}
          */
-        setMod: function($this, modKey, modVal) {
+        setMod: function ($this, modKey, modVal) {
             var self = this,
                 modVal = modVal || 'yes',
                 selector = $this.selector;
 
-            $this.each(function() {
+            $this.each(function () {
                 var current = $(this);
                 current.selector = selector;
 
@@ -293,12 +294,12 @@
          * @param  {String}  [modVal]  Modifier value
          * @param  {Object}
          */
-        delMod: function($this, modKey, modVal) {
+        delMod: function ($this, modKey, modVal) {
             var self = this,
                 modVal = modVal || null,
                 selector = $this.selector;
 
-            $this.each(function() {
+            $this.each(function () {
                 var current = $(this);
                 current.selector = selector;
 
@@ -338,14 +339,14 @@
          * @param  {Bool}    [inverse]  Use .not() instead .filter()
          * @param  {Object}
          */
-        byMod: function($this, modKey, modVal, inverse) {
+        byMod: function ($this, modKey, modVal, inverse) {
             var self = this,
                 modVal = modVal || null,
                 inverse = inverse || false,
                 selector = $this.selector,
                 result = $();
 
-            $this.each(function() {
+            $this.each(function () {
                 var current = $(this);
                 current.selector = selector;
 
@@ -380,12 +381,12 @@
          * @param  {Object|String}  $this  DOM element
          * @return {Object}
          */
-        _extractBlocks: function($this) {
+        _extractBlocks: function ($this) {
             var self = this,
                 result = [];
             var selectors = this._getClasses($this);
 
-            $.each(selectors, function(i, sel) {
+            $.each(selectors, function (i, sel) {
                 var type = self._getClassType(sel);
 
                 if (type == 'block') {
@@ -407,7 +408,7 @@
          * @param  {Object}  $this  DOM element
          * @return {Object}
          */
-        _extractElems: function($this) {
+        _extractElems: function ($this) {
             return [];
         },
 
@@ -419,14 +420,14 @@
          * @param  {Object}  $this  DOM element
          * @return {Object}
          */
-        _extractMods: function($this) {
+        _extractMods: function ($this) {
             var self = this,
                 result = {};
 
-            $this.each(function() {
+            $this.each(function () {
                 var $this = $(this);
 
-                $.each(self._getClasses($this), function(i, className) {
+                $.each(self._getClasses($this), function (i, className) {
                     if (self._getClassType(className) == 'mod') {
                         var re = self._buildModClassRe().exec(className);
                         var modName = re[1].split(syntax.modDlmtr);
@@ -447,7 +448,7 @@
          * @param  {Object}  $this  DOM element
          * @return {Object}
          */
-        _getClasses: function($this) {
+        _getClasses: function ($this) {
             var classes, result = [];
 
             if (typeof $this == 'object') {
@@ -464,7 +465,7 @@
                 classes = $this.split('.');
             }
 
-            $.each(classes, function(i, className) {
+            $.each(classes, function (i, className) {
                 if (className != '') result.push(className.trim());
             });
 
@@ -478,7 +479,7 @@
          *
          * @return {RegExp}
          */
-        _buildBlockClassRe: function() {
+        _buildBlockClassRe: function () {
             return new RegExp(
                 syntax.namePrefix + '(' + syntax.namePattern + ')$'
             );
@@ -491,7 +492,7 @@
          *
          * @return {RegExp}
          */
-        _buildElemClassRe: function() {
+        _buildElemClassRe: function () {
             return new RegExp(
                 syntax.namePrefix + syntax.namePattern + syntax.elemPrefix + '(' + syntax.namePattern + ')$'
             );
@@ -504,7 +505,7 @@
          *
          * @return {RegExp}
          */
-        _buildModClassRe: function() {
+        _buildModClassRe: function () {
             return new RegExp(
                 syntax.namePrefix + '.*' + syntax.modPrefix + '(' + syntax.namePattern + syntax.modDlmtr + syntax.namePattern + ')$'
             );
@@ -518,7 +519,7 @@
          * @param  {String}  blockName  Block name
          * @return {String}
          */
-        _buildBlockClass: function(blockName) {
+        _buildBlockClass: function (blockName) {
             return blockName;
         },
 
@@ -531,7 +532,7 @@
          * @param  {String}  elemKey    Element name
          * @return {String}
          */
-        _buildElemClass: function(blockName, elemKey) {
+        _buildElemClass: function (blockName, elemKey) {
             return blockName + syntax.elemPrefix + elemKey;
         },
 
@@ -545,7 +546,7 @@
          * @param  {String}  modVal     Modifier value
          * @return {String}
          */
-        _buildModClass: function(baseClass, modKey, modVal) {
+        _buildModClass: function (baseClass, modKey, modVal) {
             return baseClass + syntax.modPrefix + modKey + syntax.modDlmtr + modVal;
         },
 
@@ -558,7 +559,7 @@
          * @param  {String}         Selector prefix
          * @return {String}
          */
-        _buildSelector: function(selector, prefix) {
+        _buildSelector: function (selector, prefix) {
             if (prefix !== '') {
                 var prefix = prefix || '.';
             }
@@ -579,8 +580,8 @@
             }
 
             return buildSelector != undefined ?
-                prefix + buildSelector :
-                prefix + selector;
+            prefix + buildSelector :
+            prefix + selector;
         },
 
 
@@ -589,10 +590,10 @@
          * @protected
          *
          * @param  {Object|String}  $this    DOM element or class names
-         * @param  {Integer}        [index]  Main class index 
+         * @param  {Integer}        [index]  Main class index
          * @return {String}
          */
-        _getBlockClass: function($this, index) {
+        _getBlockClass: function ($this, index) {
             var blockClasses = this._extractBlocks($this);
 
             if (index !== 0) {
@@ -611,12 +612,12 @@
          * @param  {Object}  $this  DOM element
          * @return {String}
          */
-        _getBaseClass: function($this) {
+        _getBaseClass: function ($this) {
             var self = this,
                 baseClass = null;
             var selectors = this._getClasses($this);
 
-            $.each(selectors, function(i, sel) {
+            $.each(selectors, function (i, sel) {
                 var classType = self._getClassType(sel);
 
                 if (classType && classType != 'mod') {
@@ -635,7 +636,7 @@
          * @param  {String}  className  Class name
          * @return {String}
          */
-        _getClassType: function(className) {
+        _getClassType: function (className) {
 
             if (this._buildModClassRe().test(className)) {
                 return 'mod';
@@ -655,38 +656,37 @@
 })(jQuery, undefined);
 
 
+(function ($, undefined) {
 
-(function($, undefined) {
-
-    $.fn.up = function(elem) {
+    $.fn.up = function (elem) {
         return bem.getBlock($(this), elem);
     }
 
-    $.fn.elem = function(elemKey) {
+    $.fn.elem = function (elemKey) {
         return bem.findElem($(this), elemKey);
     }
 
-    $.fn.getMod = function(modKey) {
+    $.fn.getMod = function (modKey) {
         return bem.getMod($(this), modKey);
     }
 
-    $.fn.hasMod = function(modKey, modVal) {
+    $.fn.hasMod = function (modKey, modVal) {
         return bem.hasMod($(this), modKey, modVal);
     }
 
-    $.fn.setMod = function(modKey, modVal) {
+    $.fn.setMod = function (modKey, modVal) {
         return bem.setMod($(this), modKey, modVal);
     }
 
-    $.fn.delMod = function(modKey, modVal) {
+    $.fn.delMod = function (modKey, modVal) {
         return bem.delMod($(this), modKey, modVal);
     }
 
-    $.fn.byMod = function(modKey, modVal) {
+    $.fn.byMod = function (modKey, modVal) {
         return bem.byMod($(this), modKey, modVal);
     }
 
-    $.fn.byNotMod = function(modKey, modVal) {
+    $.fn.byNotMod = function (modKey, modVal) {
         return bem.byMod($(this), modKey, modVal, 'inverse');
     }
 

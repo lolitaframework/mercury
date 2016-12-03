@@ -22,12 +22,18 @@
   $matrix: _ss-matrix($n + 1, $m + 1);
   $cost: _ss-matrix($n, $m);
 
-  @if $a == $b { @return 0; }
-  @if $n == 0  { @return $m; }
-  @if $m == 0  { @return $n; }
+  @if $a == $b {
+    @return 0;
+  }
+  @if $n == 0 {
+    @return $m;
+  }
+  @if $m == 0 {
+    @return $n;
+  }
 
-  @for $i from 0 through $n  {
-    @for $j from 0 through $m  {
+  @for $i from 0 through $n {
+    @for $j from 0 through $m {
       $v: if($i == 0, $j, if($j == 0, $i, 0));
       @if $v != 0 {
         $matrix: _ss-set-matrix($matrix, $i + 1, $j + 1, $v);
@@ -89,7 +95,7 @@
 /// @param {Number} $value  - value to assign at $matrix[$x, $y]
 /// @return {List}
 @function _ss-set-matrix($matrix, $x, $y, $value) {
-    @return set-nth($matrix, $x, set-nth(nth($matrix, $x), $y, $value));
+  @return set-nth($matrix, $x, set-nth(nth($matrix, $x), $y, $value));
 }
 
 /// Count the number of occurrences of `$needle` in `$string`.
@@ -306,11 +312,11 @@
     $index: index($alphabet, to-lower-case($char));
     $is-caps: $index and (index($alphabet, to-lower-case($char)) != index($alphabet, $char));
     $new-char: if($index,
-      if($index + $rot > length($alphabet),
-        nth($alphabet, $index + $rot - length($alphabet)),
-        nth($alphabet, $index + $rot)
-      ),
-      $char
+            if($index + $rot > length($alphabet),
+                    nth($alphabet, $index + $rot - length($alphabet)),
+                    nth($alphabet, $index + $rot)
+            ),
+            $char
     );
 
     @if $is-caps {
@@ -392,23 +398,23 @@
 /// @param {String} $string - string to check
 /// @return {String}
 @function _ss-str-word-count($string) {
-    @if $string == "" {
-        @return 0;
+  @if $string == "" {
+    @return 0;
+  }
+
+  $string: str-trim($string);
+  $words: ();
+  $i: str-length($string);
+
+  @while $i > 0 {
+    @if str-slice($string, $i, $i) == " " {
+      $words: append($words, str-slice($string, $i + 1));
+      $string: str-slice($string, 1, $i - 1);
     }
+    $i: $i - 1;
+  }
 
-    $string: str-trim($string);
-    $words: ();
-    $i: str-length($string);
-
-    @while $i > 0 {
-        @if str-slice($string, $i, $i) == " " {
-            $words: append($words, str-slice($string, $i + 1));
-            $string: str-slice($string, 1, $i - 1);
-        }
-        $i: $i - 1;
-    }
-
-    @return length(append($words, $string));
+  @return length(append($words, $string));
 }
 
 /// Cast `$literal` to string.
@@ -539,6 +545,7 @@
   }
   @return _ss-str-pad($string, $length, $pad, $direction);
 }
+
 @function str-printf($string, $elements...) {
   @if type-of($string) != "string" {
     @error "`str-printf` function expecting a string for $string; #{type-of($string)} given.";
@@ -574,7 +581,6 @@
 
   @return _ss-str-replace($string, $search, $replace);
 }
-
 
 @function str-reverse($string) {
   @if type-of($string) != "string" {

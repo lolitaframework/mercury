@@ -6,75 +6,80 @@
 //
 //
 @include block(b-pagination) {
-    @include element(items) {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        text-align: center;
+  @include element(items) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  @include element(item) {
+    display: inline-block;
+    line-height: 27px;
+  }
+  @include element(link) {
+    display: inline-block;
+    width: 25px;
+    height: 27px;
+    line-height: 27px;
+    border-radius: 3px;
+    vertical-align: middle;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    text-decoration: none;
+    &:hover {
+      border: 1px solid #999999;
     }
-    @include element(item) {
-        display: inline-block;
-        line-height: 27px;
+    @include modifier(active) {
+      border: 1px solid #999999;
     }
-    @include element(link) {
-        display: inline-block;
-        width: 25px;
-        height: 27px;
-        line-height: 27px;
-        border-radius: 3px;
-        vertical-align: middle;
-        font-weight: 400;
-        font-size: 16px;
-        color: #333333;
-        text-decoration: none;
-        &:hover {
-            border: 1px solid #999999;
-        }
-        @include modifier(active) {
-            border: 1px solid #999999;
-        }
+  }
+  @include element(prev) {
+    @include text-hide();
+    display: inline-block;
+    width: 8px;
+    height: 20px;
+    background: url('../img/controls-pagination.svg') 50% 50% no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+    margin-right: 42px;
+  }
+  @include element(next) {
+    @include text-hide();
+    display: inline-block;
+    width: 8px;
+    height: 20px;
+    background: url('../img/controls-pagination.svg') 50% 50% no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+    margin-left: 42px;
+    transform: rotate(180deg);
+  }
+  @include element(meta) {
+    text-align: center;
+    font-size: 12px;
+    color: #7F7F7F;
+    margin-top: 5px;
+  }
+  // media queries
+  @include media-breakpoint-only(xs) {
+    & {
     }
-    @include element(prev) {
-        @include text-hide();
-        display: inline-block;
-        width: 8px;
-        height: 20px;
-        background: url('../img/controls-pagination.svg') 50% 50% no-repeat;
-        background-size: contain;
-        vertical-align: middle;
-        margin-right: 42px;
+  }
+  @include media-breakpoint-only(sm) {
+    & {
     }
-    @include element(next) {
-        @include text-hide();
-        display: inline-block;
-        width: 8px;
-        height: 20px;
-        background: url('../img/controls-pagination.svg') 50% 50% no-repeat;
-        background-size: contain;
-        vertical-align: middle;
-        margin-left: 42px;
-        transform: rotate(180deg);
+  }
+  @include media-breakpoint-only(md) {
+    & {
     }
-    @include element(meta) {
-        text-align: center;
-        font-size: 12px;
-        color: #7F7F7F;
-        margin-top: 5px;
+  }
+  @include media-breakpoint-only(lg) {
+    & {
     }
-    // media queries
-    @include media-breakpoint-only(xs) {
-        & {}
+  }
+  @include media-breakpoint-only(xl) {
+    & {
     }
-    @include media-breakpoint-only(sm) {
-        & {}
-    }
-    @include media-breakpoint-only(md) {
-        & {}
-    }
-    @include media-breakpoint-only(lg) {
-        & {}
-    }
-    @include media-breakpoint-only(xl) {
-        & {}
-    }
+  }
 }

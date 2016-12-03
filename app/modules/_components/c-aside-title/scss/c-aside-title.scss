@@ -6,50 +6,55 @@
 //
 //
 @include block(c-aside-title) {
-    position: relative;
+  position: relative;
+  width: 100%;
+  display: block;
+  height: 19px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #000000;
+  letter-spacing: -0.14px;
+  margin: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  &:before {
+    content: ' ';
     width: 100%;
-    display: block;
-    height: 19px;
-    font-weight: 600;
-    font-size: 14px;
-    color: #000000;
-    letter-spacing: -0.14px;
-    margin: 0;
-    margin-bottom: 20px;
-    text-align: center;
-    &:before {
-        content: ' ';
-        width: 100%;
-        height: 3px;
-        background-color: #F3F3F3;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        margin-top: -1px;
-        z-index: 1;
+    height: 3px;
+    background-color: #F3F3F3;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    z-index: 1;
+  }
+  @include element(bg) {
+    position: relative;
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #fff;
+    z-index: 2;
+  }
+  // media queries
+  @include media-breakpoint-only(xs) {
+    & {
     }
-    @include element(bg) {
-        position: relative;
-        display: inline-block;
-        padding-left: 20px;
-        padding-right: 20px;
-        background: #fff;
-        z-index: 2;
+  }
+  @include media-breakpoint-only(sm) {
+    & {
     }
-    // media queries
-    @include media-breakpoint-only(xs) {
-        & {}
+  }
+  @include media-breakpoint-only(md) {
+    & {
     }
-    @include media-breakpoint-only(sm) {
-        & {}
+  }
+  @include media-breakpoint-only(lg) {
+    & {
     }
-    @include media-breakpoint-only(md) {
-        & {}
+  }
+  @include media-breakpoint-only(xl) {
+    & {
     }
-    @include media-breakpoint-only(lg) {
-        & {}
-    }
-    @include media-breakpoint-only(xl) {
-        & {}
-    }
+  }
 }

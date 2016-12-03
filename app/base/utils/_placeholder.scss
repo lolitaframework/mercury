@@ -2,8 +2,7 @@
   $selector: '';
   @if not(&) {
     $selector: $vendor_selector;
-  } 
-  @else {
+  } @else {
     $selector: selector-append(&, $vendor_selector);
   }
   @at-root #{$selector} {

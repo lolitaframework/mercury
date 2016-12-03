@@ -6,81 +6,81 @@
 //
 //
 @include block(l-header) {
+  @include element(top) {
+    position: relative;
+    background-color: #2A2A2A;
+    .container {
+      height: 60px;
+      position: relative;
+    }
+  }
+  @include element(top-item) {
+    @include mix(b-logo) {
+      position: absolute;
+      top: 19px;
+      left: 15px;
+    }
+    @include mix(b-main-menu) {
+      position: absolute;
+      top: 0;
+      right: 15px;
+    }
+    @include mix(b-search) {
+      display: none;
+      position: relative;
+      z-index: $zindex-navbar-fixed;
+    }
+  }
+  // media queries
+  @include media-breakpoint-down(md) {
     @include element(top) {
-        position: relative;
-        background-color: #2A2A2A;
-        .container {
-            height: 60px;
-            position: relative;
+      @include element(mb-search) {
+        @include text-hide();
+        display: block;
+        width: 15px;
+        height: 22px;
+        background: url('../img/search.svg') 50% 53% no-repeat;
+        background-size: 15px 22px;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        margin-top: -11px;
+        cursor: pointer;
+        z-index: 0;
+      }
+      @include element(mb-menu) {
+        @include text-hide();
+        display: block;
+        width: 17px;
+        height: 12px;
+        background: url('../img/bars.svg') 50% 50% no-repeat;
+        background-size: contain;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        margin-top: -6px;
+        cursor: pointer;
+        z-index: 0;
+        transition: 0.2s all;
+        @include modifier(opened) {
+          transition: 0.2s all;
+          width: 15px;
+          height: 15px;
+          background: url('../img/button-x-white.svg') 50% 50% no-repeat;
         }
+      }
     }
     @include element(top-item) {
-        @include mix(b-logo) {
-            position: absolute;
-            top: 19px;
-            left: 15px;
-        }
-        @include mix(b-main-menu) {
-            position: absolute;
-            top: 0;
-            right: 15px;
-        }
-        @include mix(b-search) {
-            display: none;
-            position: relative;
-            z-index: $zindex-navbar-fixed;
-        }
+      @include mix(b-logo) {
+        left: 50%;
+        margin-left: -75px;
+      }
+      @include mix(b-main-menu) {
+        right: auto;
+        margin-left: -15px;
+        margin-right: -15px;
+      }
     }
-    // media queries
-    @include media-breakpoint-down(md) {
-        @include element(top) {
-            @include element(mb-search) {
-                @include text-hide();
-                display: block;
-                width: 15px;
-                height: 22px;
-                background: url('../img/search.svg') 50% 53% no-repeat;
-                background-size: 15px 22px;
-                position: absolute;
-                left: 15px;
-                top: 50%;
-                margin-top: -11px;
-                cursor: pointer;
-                z-index: 0;
-            }
-            @include element(mb-menu) {
-                @include text-hide();
-                display: block;
-                width: 17px;
-                height: 12px;
-                background: url('../img/bars.svg') 50% 50% no-repeat;
-                background-size: contain;
-                position: absolute;
-                right: 15px;
-                top: 50%;
-                margin-top: -6px;
-                cursor: pointer;
-                z-index: 0;
-                transition: 0.2s all;
-                @include modifier(opened) {
-                    transition: 0.2s all;
-                    width: 15px;
-                    height: 15px;
-                    background: url('../img/button-x-white.svg') 50% 50% no-repeat;   
-                }
-            }
-        }
-        @include element(top-item) {
-            @include mix(b-logo) {
-                left: 50%;
-                margin-left: -75px;
-            }
-            @include mix(b-main-menu) {
-                right: auto;
-                margin-left: -15px;
-                margin-right: -15px;
-            }
-        }
-        
-    }
+
+  }
 }

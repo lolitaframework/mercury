@@ -3,7 +3,7 @@
     /**
      * @constructor
      */
-    var Sharer = function(elem) {
+    var Sharer = function (elem) {
         this.elem = elem;
     };
 
@@ -15,7 +15,7 @@
          *  @param {String} attr DOM element attribute
          *  @returns {String|Empty} returns the attr value or empty string
          */
-        getValue: function(attr) {
+        getValue: function (attr) {
             var val = this.elem.getAttribute('data-' + attr);
             return (val === undefined || val === null) ? false : val;
         },
@@ -25,7 +25,7 @@
          * @description Main share event. Will pop a window or redirect to a link
          * based on the data-sharer attribute.
          */
-        share: function() {
+        share: function () {
             var sharer = this.getValue('sharer').toLowerCase(),
                 sharers = {
                     facebook: {
@@ -247,7 +247,7 @@
          * @event urlSharer
          * @param {Object} sharer
          */
-        urlSharer: function(sharer) {
+        urlSharer: function (sharer) {
             var p = sharer.params || {},
                 keys = Object.keys(p),
                 i,
@@ -282,7 +282,7 @@
     /**
      * Creates a click event on every DOM element which has the `sharer` class
      */
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
         var elems = document.querySelectorAll('.c-share-on__link'),
             i,
             l = elems.length;
@@ -293,7 +293,7 @@
             sharer.share();
         }
 
-        for (i = 0; i < l ; i++) {
+        for (i = 0; i < l; i++) {
             elems[i].addEventListener('click', addShare);
         }
     });

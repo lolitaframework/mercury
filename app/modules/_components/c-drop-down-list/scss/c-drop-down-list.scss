@@ -6,127 +6,127 @@
 //
 //
 @include block(c-drop-down-list) {
-    @include media-breakpoint-up(lg) {
-        animation-name: drop-down-animation;
-        animation-duration: 0.4s;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        z-index: 53;
-        @include element(item) {
-            .b-main-menu__sub-menu {
-                display: none !important;
-            }
-            &:hover {
-                .b-main-menu__sub-menu {
-                    display: block !important;
-                    left: 100%;
-                    top: 0;
-                }
-            }
+  @include media-breakpoint-up(lg) {
+    animation-name: drop-down-animation;
+    animation-duration: 0.4s;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 53;
+    @include element(item) {
+      .b-main-menu__sub-menu {
+        display: none !important;
+      }
+      &:hover {
+        .b-main-menu__sub-menu {
+          display: block !important;
+          left: 100%;
+          top: 0;
         }
-        @include element(link) {
-            display: flex;
-            flex-flow: column wrap;
-            justify-content: center;
-            text-align: center;
-            padding-left: 10px;
-            padding-right: 40px !important;
-            height: 40px;
-            min-width: 130px;
-            max-width: 250px;
-            font-weight: 600;
-            font-size: 14px;
-            color: #000000;
-            letter-spacing: -0.67px;
-            text-transform: uppercase;
-            text-decoration: none;
-            background-color: #fff;
-            &.b-main-menu__link--has-submenu {
-                position: relative;
-                background: #fff !important;
-                &:after {
-                    transform: rotate(-90deg);
-                    content: ' ';
-                    display: block;
-                    width: 12px;
-                    height: 8px;
-                    background: url('../img/arrow_down--black.svg') 0 0 no-repeat;
-                    position: absolute;
-                    top: 50%;
-                    margin-top: -4px;
-                    right: 15px;
-                }
-            }
-            &:hover {
-                background-color: #333;
-                color: #fff;
-            }
-        }
+      }
     }
-    @include media-breakpoint-down(md) {
-        background-color: #fff !important;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        @include element(item) {
-            border-bottom: solid 1px #bfbfbf;
-            &:first-child {
-                border-top: solid 1px #bfbfbf;
-            }
-            @include modifier(back-button) {
-                @include element(link) {
-                    &:after {
-                        transform: rotate(90deg);
-                        content: ' ';
-                        display: block;
-                        width: 12px;
-                        height: 8px;
-                        background: url('../img/arrow_down--black.svg') 0 0 no-repeat;
-                        position: absolute;
-                        top: 50%;
-                        margin-top: -6px;
-                        right: 15px;
-                    }
-                }
-            }
+    @include element(link) {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      text-align: center;
+      padding-left: 10px;
+      padding-right: 40px !important;
+      height: 40px;
+      min-width: 130px;
+      max-width: 250px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #000000;
+      letter-spacing: -0.67px;
+      text-transform: uppercase;
+      text-decoration: none;
+      background-color: #fff;
+      &.b-main-menu__link--has-submenu {
+        position: relative;
+        background: #fff !important;
+        &:after {
+          transform: rotate(-90deg);
+          content: ' ';
+          display: block;
+          width: 12px;
+          height: 8px;
+          background: url('../img/arrow_down--black.svg') 0 0 no-repeat;
+          position: absolute;
+          top: 50%;
+          margin-top: -4px;
+          right: 15px;
         }
+      }
+      &:hover {
+        background-color: #333;
+        color: #fff;
+      }
+    }
+  }
+  @include media-breakpoint-down(md) {
+    background-color: #fff !important;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    @include element(item) {
+      border-bottom: solid 1px #bfbfbf;
+      &:first-child {
+        border-top: solid 1px #bfbfbf;
+      }
+      @include modifier(back-button) {
         @include element(link) {
-            position: relative;
+          &:after {
+            transform: rotate(90deg);
+            content: ' ';
             display: block;
-            padding: 15px 13px;
-            font-size: 16px;
-            line-height: 18px;
-            text-decoration: none;
-            color: #000;
-            @include modifier(has-submenu) {
-                &:after {
-                    transform: rotate(-90deg);
-                    content: ' ';
-                    display: block;
-                    width: 12px;
-                    height: 8px;
-                    background: url('../img/arrow_down--black.svg') 0 0 no-repeat;
-                    position: absolute;
-                    top: 50%;
-                    margin-top: -6px;
-                    right: 15px;
-                }
-            }
+            width: 12px;
+            height: 8px;
+            background: url('../img/arrow_down--black.svg') 0 0 no-repeat;
+            position: absolute;
+            top: 50%;
+            margin-top: -6px;
+            right: 15px;
+          }
         }
+      }
     }
+    @include element(link) {
+      position: relative;
+      display: block;
+      padding: 15px 13px;
+      font-size: 16px;
+      line-height: 18px;
+      text-decoration: none;
+      color: #000;
+      @include modifier(has-submenu) {
+        &:after {
+          transform: rotate(-90deg);
+          content: ' ';
+          display: block;
+          width: 12px;
+          height: 8px;
+          background: url('../img/arrow_down--black.svg') 0 0 no-repeat;
+          position: absolute;
+          top: 50%;
+          margin-top: -6px;
+          right: 15px;
+        }
+      }
+    }
+  }
 }
 
 //dropdown animation
 @keyframes drop-down-animation {
-    0% {
-        opacity: 0;
-        transition: visibility 0s cubic-bezier(0.165, 0.84, 0.44, 1) 0.25s, opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-        transform: translate(0, -5px);
-    }
-    100% {
-        opacity: 1;
-        transition: visibility 0s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-        transform: translate(0, 0);
-    }
+  0% {
+    opacity: 0;
+    transition: visibility 0s cubic-bezier(0.165, 0.84, 0.44, 1) 0.25s, opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: translate(0, -5px);
+  }
+  100% {
+    opacity: 1;
+    transition: visibility 0s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: translate(0, 0);
+  }
 }

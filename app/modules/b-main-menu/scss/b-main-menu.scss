@@ -7,180 +7,180 @@
 //
 //
 @include block(b-main-menu) {
-    @include modifier(footer) {
-        @include element(items) {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        @include element(item) {
-            position: relative;
-            padding-left: 12px;
-            padding-right: 12px;
-            &:after {
-                content: ' ';
-                display: block;
-                width: 1px;
-                height: 14px;
-                background-color: #A7A7A7;
-                position: absolute;
-                right: 0px;
-                bottom: 2px;
-            }
-            &:first-child {
-                padding-left: 0;
-            }
-            &:last-child {
-                padding-right: 0;
-                &:after {
-                    display: none;
-                }
-            }
-        }
-        @include element(link) {
-            transition: 0.2s all;
-            display: flex;
-            flex-flow: column wrap;
-            justify-content: center;
-            text-align: center;
-            font-size: 14px;
-            line-height: 19px;
-            color: #A7A7A7;
-            letter-spacing: 0.19px;
-            text-decoration: none;
-            &:hover {
-                transition: 0.2s all;
-                color: #000;
-                text-decoration: underline;
-            }
-        }
-        @include mix(c-drop-down-list, sub-menu) {
-            display: none;
-        }
+  @include modifier(footer) {
+    @include element(items) {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
-    //media queries
-    @include media-breakpoint-up(lg) {
-        @include modifier(header) {
-            @include element(items) {
-                display: flex;
-                list-style: none;
-                margin: 0;
-                padding: 0;
-            }
-            @include element(item) {
-                position: relative;
-                &:hover {
-                    @include mix(c-drop-down-list, sub-menu) {
-                        display: block;
-                    }
-                    .b-main-menu__link {
-                        background-color: #fff;
-                        color: #333333;
-                        @include modifier(has-submenu) {
-                            background-color: #fff;
-                            color: #333333;
-                            background: #fff url('../img/arrow_down--black.svg') top 50% right 10px no-repeat;
-                        }
-                        @include modifier(search) {
-                            background-color: transparent;
-                        }
-                    }
-                }
-            }
-            @include element(link) {
-                display: flex;
-                flex-flow: column wrap;
-                justify-content: center;
-                text-align: center;
-                height: 60px;
-                font-weight: 600;
-                font-size: 14px;
-                color: #FFFFFF;
-                letter-spacing: -0.67px;
-                text-transform: uppercase;
-                text-decoration: none;
-                padding-left: 10px;
-                padding-right: 10px;
-                @include modifier(has-submenu) {
-                    padding-right: 32px;
-                    background: url('../img/arrow_down.svg') top 50% right 10px no-repeat;
-                    background-size: 12px 8px;
-                }
-                @include modifier(search) {
-                    @include text-hide();
-                    width: 15px;
-                    background: url('../img/search.svg') 50% 53% no-repeat;
-                    background-size: 15px 22px;
-                }
-            }
-            @include mix(c-drop-down-list,
-            sub-menu) {
-                display: none;
-                position: absolute;
-                left: 0;
-                top: 60px;
-            }   
+    @include element(item) {
+      position: relative;
+      padding-left: 12px;
+      padding-right: 12px;
+      &:after {
+        content: ' ';
+        display: block;
+        width: 1px;
+        height: 14px;
+        background-color: #A7A7A7;
+        position: absolute;
+        right: 0px;
+        bottom: 2px;
+      }
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+        &:after {
+          display: none;
         }
+      }
     }
-    @include media-breakpoint-down(md) {
-        @include modifier(header) {
-            display: none;
-            animation-name: drop-down-animation;
-            animation-duration: 0.6s;
-            top: 60px !important;
-            position: relative;
-            z-index: $zindex-dropdown;
-            @include element(items) {
-                background-color: #fff !important;
-                list-style: none;
-                margin: 0;
-                padding: 0;
+    @include element(link) {
+      transition: 0.2s all;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      text-align: center;
+      font-size: 14px;
+      line-height: 19px;
+      color: #A7A7A7;
+      letter-spacing: 0.19px;
+      text-decoration: none;
+      &:hover {
+        transition: 0.2s all;
+        color: #000;
+        text-decoration: underline;
+      }
+    }
+    @include mix(c-drop-down-list, sub-menu) {
+      display: none;
+    }
+  }
+  //media queries
+  @include media-breakpoint-up(lg) {
+    @include modifier(header) {
+      @include element(items) {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      @include element(item) {
+        position: relative;
+        &:hover {
+          @include mix(c-drop-down-list, sub-menu) {
+            display: block;
+          }
+          .b-main-menu__link {
+            background-color: #fff;
+            color: #333333;
+            @include modifier(has-submenu) {
+              background-color: #fff;
+              color: #333333;
+              background: #fff url('../img/arrow_down--black.svg') top 50% right 10px no-repeat;
             }
-            @include element(item) {
-                border-bottom: solid 1px #bfbfbf;
-                &:first-child {
-                    border-top: solid 1px #bfbfbf;
-                }
+            @include modifier(search) {
+              background-color: transparent;
             }
-            @include element(link) {
-                position: relative;
-                display: block;
-                padding: 15px 13px;
-                font-size: 16px;
-                line-height: 18px;
-                text-decoration: none;
-                color: #000;
-                @include modifier(has-submenu) {
-                    &:after {
-                        transform: rotate(-90deg);
-                        content: ' ';
-                        display: block;
-                        width: 12px;
-                        height: 8px;
-                        background: url('../img/arrow_down--black.svg') 0 0 no-repeat;
-                        position: absolute;
-                        top: 50%;
-                        margin-top: -6px;
-                        right: 15px;
-                    }
+          }
+        }
+      }
+      @include element(link) {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        text-align: center;
+        height: 60px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #FFFFFF;
+        letter-spacing: -0.67px;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding-left: 10px;
+        padding-right: 10px;
+        @include modifier(has-submenu) {
+          padding-right: 32px;
+          background: url('../img/arrow_down.svg') top 50% right 10px no-repeat;
+          background-size: 12px 8px;
+        }
+        @include modifier(search) {
+          @include text-hide();
+          width: 15px;
+          background: url('../img/search.svg') 50% 53% no-repeat;
+          background-size: 15px 22px;
+        }
+      }
+      @include mix(c-drop-down-list,
+              sub-menu) {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 60px;
+      }
+    }
+  }
+  @include media-breakpoint-down(md) {
+    @include modifier(header) {
+      display: none;
+      animation-name: drop-down-animation;
+      animation-duration: 0.6s;
+      top: 60px !important;
+      position: relative;
+      z-index: $zindex-dropdown;
+      @include element(items) {
+        background-color: #fff !important;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      @include element(item) {
+        border-bottom: solid 1px #bfbfbf;
+        &:first-child {
+          border-top: solid 1px #bfbfbf;
+        }
+      }
+      @include element(link) {
+        position: relative;
+        display: block;
+        padding: 15px 13px;
+        font-size: 16px;
+        line-height: 18px;
+        text-decoration: none;
+        color: #000;
+        @include modifier(has-submenu) {
+          &:after {
+            transform: rotate(-90deg);
+            content: ' ';
+            display: block;
+            width: 12px;
+            height: 8px;
+            background: url('../img/arrow_down--black.svg') 0 0 no-repeat;
+            position: absolute;
+            top: 50%;
+            margin-top: -6px;
+            right: 15px;
+          }
 
-                }
-            }
         }
+      }
     }
+  }
 }
 
 //dropdown animation
 @keyframes drop-down-animation {
-    0% {
-        opacity: 0;
-        transition: visibility 0s cubic-bezier(0.165, 0.84, 0.44, 1) 0.25s, opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-        transform: translate(0, -5px);
-    }
-    100% {
-        opacity: 1;
-        transition: visibility 0s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-        transform: translate(0, 0);
-    }
+  0% {
+    opacity: 0;
+    transition: visibility 0s cubic-bezier(0.165, 0.84, 0.44, 1) 0.25s, opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: translate(0, -5px);
+  }
+  100% {
+    opacity: 1;
+    transition: visibility 0s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: translate(0, 0);
+  }
 }

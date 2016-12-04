@@ -47,18 +47,14 @@
     letter-spacing: -0.1px;
   }
   @include element(content) {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-start;
-    justify-content: space-between;
     margin-bottom: 20px;
   }
   @include mix(c-text, text) {
-    padding-right: 30px;
     font-weight: 100;
   }
   @include element(share-on) {
-    flex-shrink: 0;
+    float: right;
+    margin-left: 30px;
   }
   @include media-breakpoint-down(md) {
     @include element(title) {
@@ -73,6 +69,10 @@
     }
     @include mix(c-text, text) {
       padding-right: 0;
+    }
+    @include element(share-on) {
+      float: none;
+      margin-left: 0;
     }
 
   }

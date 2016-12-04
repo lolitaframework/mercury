@@ -2,14 +2,7 @@
 /// <reference path='../../../general/ts/core.ts' />
 
 namespace LolitaFramework.Blocks {
-    export class Search extends LolitaFramework.MediaBreakpoints {
-
-        /**
-         * Current Item
-         * @type {JQuery}
-         */
-        public currentItem: JQuery;
-
+    export class Search extends LolitaFramework.Block {
 
         /**
          * Constructor
@@ -77,8 +70,6 @@ namespace LolitaFramework.Blocks {
 
                 }
             );
-
-            this.init();
         }
 
         /**

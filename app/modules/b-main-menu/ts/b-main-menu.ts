@@ -271,10 +271,8 @@ namespace LolitaFramework.Blocks {
          */
         protected onBreakpointChange(breakpoint: Breakpoint) {
             if (breakpoint.name == 'sm' || breakpoint.name == 'md') {
-                console.log('small' + jQuery(window).width());
                 multilevelMenu.enable();
             } else {
-                console.log('big' + jQuery(window).width());
                 multilevelMenu.disable();
             }
         }

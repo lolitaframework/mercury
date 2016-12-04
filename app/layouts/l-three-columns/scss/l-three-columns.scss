@@ -7,7 +7,6 @@
 //
 @include block(l-three-columns) {
   margin-top: 30px;
-  margin-bottom: 30px;
   // media queries
   @include media-breakpoint-down(md) {
     margin-top: 0;

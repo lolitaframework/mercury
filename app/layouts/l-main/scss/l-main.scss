@@ -48,17 +48,40 @@
       @include make-col-ready(30px);
     }
   }
+  // grid
+  @include modifier(grid) {
+    @include element(inner) {
+      display: block;
+    }
+    @include element(content) {
+      width: auto;
+      max-width: none;
+      margin-right: 0;
+      @include make-row();
+    }
+    @include element(content-item) {
+      @include make-col(4);
+      @include make-col-ready(30px);
+      height: 550px;
+    }
+    @include element(sidebar) {
+      @include make-row();
+      width: auto;
+    }
+    @include element(sidebar-item) {
+      @include make-col(4);
+      @include make-col-ready(30px);
+    }
+  }
   // media queries
   @include media-breakpoint-down(md) {
-    @include element(inner) {
-      @include modifier(no-top-margin-mb) {
-        margin-top: 0;
-      }
-    }
     @include element(inner) {
       flex-flow: column nowrap;
       margin-left: -15px;
       margin-right: -15px;
+      @include modifier(no-top-margin-mb) {
+        margin-top: 0;
+      }
     }
     @include element(content) {
       max-width: none;

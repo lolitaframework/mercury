@@ -6,7 +6,7 @@
 //
 //
 @include block(c-share-on) {
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(xl) {
     width: 116px;
     padding: 8px;
     background-color: #F6F6F6;
@@ -57,6 +57,115 @@
           text-align: center;
         }
       }
+    }
+  }
+  @include media-breakpoint-only(lg) {
+    width: 116px;
+    padding: 8px;
+    background-color: #F6F6F6;
+    @include element(title) {
+      font-weight: 600;
+      font-size: 14px;
+      color: #000000;
+      letter-spacing: -0.13px;
+      text-transform: uppercase;
+      margin-top: 0;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    @include element(items) {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    @include element(item) {
+    }
+    @include element(link) {
+      transition: 0.2s all;
+      position: relative;
+      display: block;
+      padding-left: 18px;
+      font-size: 12px !important;
+      line-height: 18px;
+      color: #999191;
+      letter-spacing: 0px;
+      text-transform: uppercase;
+      text-decoration: none;
+      vertical-align: middle;
+      &:hover {
+        transition: 0.2s all;
+        color: #08C;
+      }
+      i {
+        &:before {
+          display: block;
+          width: 10px;
+          height: 17px;
+          line-height: 17px;
+          position: absolute;
+          left: 0;
+          top: 0px;
+          font-size: 10px;
+          vertical-align: middle;
+          text-align: center;
+        }
+      }
+    }
+    @include modifier(grid) {
+      width: auto;
+      padding: 0;
+      background-color: transparent;
+
+      @include element(title) {
+        display: none;
+      }
+      @include element(items) {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+      }
+      @include element(item) {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      @include element(link) {
+        @include text-hide();
+        font: 0/0 a !important;
+        position: relative;
+        display: block;
+        width: 35px;
+        height: 35px;
+        border: 1px solid #000;
+        border-radius: 100%;
+        overflow: hidden;
+        vertical-align: middle;
+        transition: 0.2s all;
+        color: #000;
+        background-color: #fff;
+        &:hover {
+          transition: 0.2s all;
+          color: #fff;
+          background-color: #000;
+        }
+        i {
+          &:before {
+            width: auto;
+            height: auto;
+            font-size: 14px;
+            line-height: 35px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            text-align: center;
+            vertical-align: middle;
+          }
+        }
+      }
+
     }
   }
   @include media-breakpoint-down(md) {

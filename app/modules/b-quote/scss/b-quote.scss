@@ -6,22 +6,24 @@
 //
 //
 @include block(b-quote) {
-  @include gradient-y(#273A44, #354759);
-  position: relative;
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.50);
-  width: 100%;
-  padding: 58px 28px 10px 28px;
-  &:before {
-    content: ' ';
-    display: block;
-    width: 20px;
-    height: 18px;
-    background: url('../img/quote-symbol.svg') 0 0 no-repeat;
-    background-size: contain;
-    position: absolute;
-    top: 33.57px;
-    left: 50%;
-    margin-left: -9px;
+  @include element(inner ){
+    @include gradient-y(#273A44, #354759);
+    position: relative;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.50);
+    width: 100%;
+    padding: 58px 28px 10px 28px;
+    &:before {
+      content: ' ';
+      display: block;
+      width: 20px;
+      height: 18px;
+      background: url('../img/quote-symbol.svg') 0 0 no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 33.57px;
+      left: 50%;
+      margin-left: -9px;
+    }
   }
   @include element(quote) {
     &:before,
@@ -79,27 +81,6 @@
       vertical-align: middle;
       position: relative;
       top: -1px;
-    }
-  }
-  //media queries
-  @include media-breakpoint-only(xs) {
-    & {
-    }
-  }
-  @include media-breakpoint-only(sm) {
-    & {
-    }
-  }
-  @include media-breakpoint-only(md) {
-    & {
-    }
-  }
-  @include media-breakpoint-only(lg) {
-    & {
-    }
-  }
-  @include media-breakpoint-only(xl) {
-    & {
     }
   }
 }

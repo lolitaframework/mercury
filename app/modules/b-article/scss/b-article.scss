@@ -56,6 +56,69 @@
     float: right;
     margin-left: 30px;
   }
+  @include media-breakpoint-only(lg) {
+    @include modifier(grid) {
+      @include element(breadcrumbs) {
+        text-align: center;
+      }
+      @include element(bottom) {
+        padding: 7px 7px 0;
+      }
+      @include element(title) {
+        text-align: center;
+        &:hover {
+        }
+      }
+      @include element(title-link) {
+        text-align: center;
+        &:hover {
+        }
+      }
+      @include element(meta) {
+        text-align: center;
+      }
+      @include element(content) {
+        margin-bottom: 10px;
+      }
+      @include mix(c-text, text) {
+        margin-top: 5px;
+        height: 60px;
+        overflow: hidden;
+        margin-bottom: 7px;
+        p {
+          margin: 0;
+        }
+      }
+      @include element(share-on) {
+        position: relative;
+        float: none;
+        margin-left: 0;
+      }
+      @include element(tags) {
+        text-align: center;
+      }
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    // grid
+    @include modifier(grid) {
+      @include element(bottom) {
+        position: relative;
+        padding: 14px 7px 0;
+      }
+      @include element(content) {
+        max-width: 180px;
+        height: 90px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      @include element(share-on) {
+        position: absolute;
+        top: 14px;
+        right: 7px;
+      }
+    }
+  }
   @include media-breakpoint-down(md) {
     @include element(title) {
       text-align: center;

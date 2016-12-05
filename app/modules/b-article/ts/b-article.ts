@@ -29,7 +29,11 @@ namespace LolitaFramework {
                     (index, item) => {
                         let currentItem = jQuery(item);
                         let shareOn = currentItem.find('.b-article__share-on');
-                        currentItem.find('.b-article__content').prepend(shareOn);
+                        if (currentItem.hasClass('b-article--grid') && breakpoint.name == 'lg') {
+                            currentItem.find('.b-article__content').append(shareOn);
+                        } else {
+                            currentItem.find('.b-article__content').prepend(shareOn);
+                        }
                     }
                 );
             }

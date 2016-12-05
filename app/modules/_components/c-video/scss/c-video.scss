@@ -11,9 +11,23 @@
     width: 100%;
     height: 500px;
   }
+  @include modifier(grid) {
+    @include element(iframe) {
+      width: 100%;
+      height: 340px;
+    }
+  }
+
   @include media-breakpoint-down(md) {
     @include element(iframe) {
       height: 250px;
     }
+    @include modifier(grid) {
+      @include element(thumbnail) {
+        height: 250px;
+        width: 100%;
+      }
+    }
+
   }
 }

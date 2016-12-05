@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
     <!-- styles -->
     <link rel="stylesheet" type="text/css" href="./css/base.css">
-    <link rel="stylesheet" type="text/css" href="./css/general.css">
     <link rel="stylesheet" type="text/css" href="./css/layouts.css">
     <link rel="stylesheet" type="text/css" href="./css/modules.css">
     <link rel="stylesheet" type="text/css" href="./css/components.css">
@@ -44,17 +43,17 @@
         </div>
     </div>
 </section>
-<section class="l-main l-main--full-width">
+<section class="l-main l-main--grid">
     <div class="container">
         <div class="l-main__inner">
             <div class="l-main__content">
-                @@include("b-article.html", {"mod" : "", "mix" : "l-main__content-item"})
-                @@include("b-article2.html", {"mod" : "", "mix" : "l-main__content-item"})
-                @@include("b-article3.html", {"mod" : "", "mix" : "l-main__content-item"})
-                @@include("b-quote.html", {"mod" : "", "mix" : "l-main__content-item"})
-                @@include("b-linked-article.html", {"mod" : "", "mix" : "l-main__content-item"})
-                @@include("b-audio.html", {"mod" : "", "mix" : "l-main__content-item"})
-                @@include("b-pagination.html", {"mod" : "", "mix" : "l-main__content-item"})
+                @@include("b-article--grid.html", {"mod" : "b-article--grid", "mix" : "l-main__content-item"})
+                @@include("b-article2--grid.html", {"mod" : "b-article--grid", "mix" : "l-main__content-item"})
+                @@include("b-article3--grid.html", {"mod" : "b-article--grid", "mix" : "l-main__content-item"})
+                @@include("b-quote.html", {"mod" : "b-article--grid", "mix" : "l-main__content-item"})
+                @@include("b-linked-article.html", {"mod" : "b-article--grid", "mix" : "l-main__content-item"})
+                @@include("b-audio.html", {"mod" : "b-article--grid", "mix" : "l-main__content-item"})
+                @@include("b-pagination.html", {"mod" : "b-article--grid", "mix" : "l-main__content-item"})
             </div>
             <aside class="l-main__sidebar">
                 @@include("b-about-me.html", {"mod" : "", "mix" : "l-main__sidebar-item"})

@@ -1,0 +1,116 @@
+@import "../../../base/core/mixins";
+//
+//*****************************************************************************
+// b-might-like
+//*****************************************************************************
+//
+//
+@include block(b-might-like) {
+  margin-bottom: 30px;
+  @include element(title) {
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+  @include element(items) {
+    list-style: none;
+    margin: 0 -20px;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+  }
+  @include element(item) {
+    width: 340px;
+    max-width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    flex-shrink: 1;
+    @include element(link) {
+      display: block;
+      text-decoration: none;
+    }
+    @include element(image) {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    @include element(caption) {
+      font-size: 14px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      letter-spacing: -0.1px;
+      color: #000000;
+      text-align: left;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    @include element(meta) {
+      font-size: 10px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      letter-spacing: -0.1px;
+      color: #a7a7a7;
+      text-align: left;
+    }
+  }
+}
+@include media-breakpoint-only(lg) {
+  @include block(b-might-like) {
+    @include element(item) {
+      display: block;
+      max-width: 173px;
+      padding-bottom: 20px;
+      @include element(link) {
+        display: block;
+        text-decoration: none;
+      }
+      @include element(image) {
+        max-width: 100%;
+        height: auto;
+      }
+      @include element(caption) {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      @include element(meta) {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+  }
+}
+@include media-breakpoint-down(md) {
+  @include block(b-might-like) {
+    @include element(items) {
+      flex-flow: row wrap;
+      justify-content: space-around !important;
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+    }
+    @include element(item) {
+      display: block;
+      padding-bottom: 20px;
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+      max-width: 320px;
+      @include element(link) {
+        display: block;
+        text-decoration: none;
+      }
+      @include element(image) {
+        max-width: 100%;
+        height: auto;
+      }
+      @include element(caption) {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      @include element(meta) {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+  }
+}
+

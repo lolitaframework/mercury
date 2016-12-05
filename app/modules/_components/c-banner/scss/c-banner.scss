@@ -11,24 +11,10 @@
     width: 100%;
     max-height: 500px;
   }
-  @include media-breakpoint-only(xs) {
-    & {
-    }
-  }
-  @include media-breakpoint-only(sm) {
-    & {
-    }
-  }
-  @include media-breakpoint-only(md) {
-    & {
-    }
-  }
-  @include media-breakpoint-only(lg) {
-    & {
-    }
-  }
-  @include media-breakpoint-only(xl) {
-    & {
+  @include media-breakpoint-down(md) {
+    @include element(thumbnail) {
+      height: 250px;
+      width: 100%;
     }
   }
 }

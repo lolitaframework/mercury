@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>lolitaframework</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="format-detection" content="telephone=no">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="./css/base.css">
+    <link rel="stylesheet" type="text/css" href="./css/layouts.css">
+    <link rel="stylesheet" type="text/css" href="./css/modules.css">
+    <link rel="stylesheet" type="text/css" href="./css/components.css">
+</head>
+
+<body>
+<header class="l-header">
+    <div class="l-header__top">
+        <div class="container">
+            @@include("b-logo.html", {"mod" : "", "mix" : "l-header__top-item"})
+            @@include("b-main-menu--header.html", {"mod" : "b-main-menu--header", "mix" : "l-header__top-item"})
+            @@include("b-search.html", {"mod" : "", "mix" : "l-header__top-item"})
+        </div>
+    </div>
+</header>
+<section class="l-main l-main--full-width">
+    <div class="container">
+        <div class="l-main__inner">
+            <div class="l-main__content">
+                @@include("b-404.html", {"mod" : "", "mix" : "l-main__content-item"})
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="l-footer">
+    <div class="l-footer__full-width">
+        @@include("b-instagram.html", {"mod" : "b-instagram--sly", "mix" : "l-footer__full-width-item"})
+    </div>
+    <div class="l-footer__common container">
+        <div class="row">
+            <div class="col-lg-6 left">
+                @@include("b-logo.html", {"mod" : "b-logo--black", "mix" : "l-footer__common-item"})
+                @@include("b-main-menu--footer.html", {"mod" : "b-main-menu--footer", "mix" : "l-footer__common-item"})
+            </div>
+            <div class="col-lg-6 right">
+                @@include("b-social-networks.html", {"mod" : "", "mix" : "l-footer__common-item"})
+                @@include("b-copyright.html", {"mod" : "", "mix" : "l-footer__common-item"})
+            </div>
+        </div>
+    </div>
+    @@include("b-back-to-top.html", {"mod" : "", "mix" : "l-footer__item"})
+</footer>
+</body>
+<!-- SCRIPTS -->
+<script src="./js/vendors.js" type="text/javascript" charset="utf-8"></script>
+<script src="./js/general-ts.js" type="text/javascript" charset="utf-8"></script>
+<script src="./js/layouts-ts.js" type="text/javascript" charset="utf-8"></script>
+<script src="./js/components-ts.js" type="text/javascript" charset="utf-8"></script>
+<script src="./js/modules-ts.js" type="text/javascript" charset="utf-8"></script>
+<!-- /SCRIPTS -->
+
+</html>

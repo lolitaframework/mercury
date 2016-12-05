@@ -6,10 +6,12 @@
 //
 //
 @include block(c-aside-button) {
+  display: inline-block;
   transition: background-color 0.2s ease-out;
   width: 100%;
   max-width: 300px;
   height: 45px;
+  line-height: 43px;
   text-align: center;
   border: 1px solid #000;
   border-radius: 3px;
@@ -20,6 +22,8 @@
   color: #000;
   letter-spacing: -0.14px;
   outline: none;
+  text-decoration: none;
+  padding: 0;
   &:hover {
     transition: background-color 0.2s ease-out;
     background: #000;

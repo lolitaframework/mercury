@@ -36,6 +36,8 @@
     }
     @include element(content) {
       width: 100%;
+      max-width: none;
+      margin-right: 0;
     }
     @include element(sidebar) {
       @include make-row();
@@ -81,6 +83,8 @@
       }
       @include element(content) {
         width: 100%;
+        max-width: none;
+        margin-right: 0;
       }
       @include element(sidebar) {
         @include make-row();

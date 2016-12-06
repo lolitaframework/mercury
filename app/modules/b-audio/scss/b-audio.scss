@@ -11,24 +11,17 @@
     width: 100%;
     height: 250px;
   }
-  @include media-breakpoint-only(xs) {
-    & {
+  @include modifier(grid) {
+    @include element(iframe) {
+      height: 550px;
     }
   }
-  @include media-breakpoint-only(sm) {
-    & {
-    }
-  }
-  @include media-breakpoint-only(md) {
-    & {
-    }
-  }
-  @include media-breakpoint-only(lg) {
-    & {
-    }
-  }
-  @include media-breakpoint-only(xl) {
-    & {
+  // media queries
+  @include media-breakpoint-down(md) {
+    @include modifier(grid) {
+      @include element(iframe) {
+        height: 250px;
+      }
     }
   }
 }

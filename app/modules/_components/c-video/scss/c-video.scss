@@ -23,7 +23,7 @@
       height: 250px;
     }
     @include modifier(grid) {
-      @include element(thumbnail) {
+      @include element(iframe) {
         height: 250px;
         width: 100%;
       }

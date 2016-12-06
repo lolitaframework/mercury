@@ -6,12 +6,13 @@
 //
 //
 @include block(b-quote) {
-  @include element(inner ){
+  @include element(inner) {
+    height: 100%;
     @include gradient-y(#273A44, #354759);
     position: relative;
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.50);
     width: 100%;
-    padding: 58px 28px 10px 28px;
+    padding: 58px 28px 54px 28px;
     &:before {
       content: ' ';
       display: block;
@@ -41,6 +42,7 @@
     font-style: italic;
     color: #FFFFFF;
     line-height: 48px;
+    font-family: serif;
   }
   @include element(author) {
     display: block;
@@ -52,6 +54,7 @@
     font-style: italic;
     color: #FFFFFF;
     line-height: 48px;
+    font-family: serif;
     &:before {
       content: '― ';
     }
@@ -65,6 +68,11 @@
     margin: 0 auto;
     margin-top: 21px;
     text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
   }
   @include element(likes) {
     display: inline-block;
@@ -81,6 +89,36 @@
       vertical-align: middle;
       position: relative;
       top: -1px;
+    }
+  }
+  // grid
+  @include modifier(grid) {
+    @include element(inner) {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+    }
+    @include element(text) {
+      font-size: 31px;
+      font-family: serif;
+    }
+    @include element(author) {
+      font-size: 27px;
+      font-family: serif;
+    }
+  }
+  // media queries
+  @include media-breakpoint-down(md) {
+    @include element(inner) {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+    }
+    @include element(text) {
+      font-size: 31px;
+    }
+    @include element(author) {
+      font-size: 27px;
     }
   }
 }

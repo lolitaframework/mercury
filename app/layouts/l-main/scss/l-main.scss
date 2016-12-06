@@ -63,6 +63,10 @@
       @include make-col(4);
       @include make-col-ready(30px);
       height: 550px;
+      @include mix(b-pagination) {
+        @include make-col(12);
+        height: auto;
+      }
     }
     @include element(sidebar) {
       @include make-row();
@@ -114,6 +118,36 @@
         width: auto;
         margin-left: 0;
         margin-right: 0;
+      }
+      @include element(sidebar-item) {
+        @include make-col(12);
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    // grid
+    @include modifier(grid) {
+      @include element(inner) {
+        display: block;
+      }
+      @include element(content) {
+        width: 100%;
+        max-width: none;
+        margin-right: 0;
+        margin-left: 0;
+      }
+      @include element(content-item) {
+        @include make-col(12);
+        padding-left: 0;
+        padding-right: 0;
+        height: auto;
+      }
+      @include element(sidebar) {
+        @include make-row();
+        width: auto;
+        margin-left: 0;
+        margin-right: 0;
+        height: auto;
       }
       @include element(sidebar-item) {
         @include make-col(12);

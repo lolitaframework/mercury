@@ -26,7 +26,7 @@
     }
   }
   @include element(sidebar) {
-    flex-basis: 100%;
+    flex-basis: 100% !important;
     width: 300px;
   }
   @include element(sidebar-item) {
@@ -38,7 +38,7 @@
       display: block;
     }
     @include element(content) {
-      width: 100%;
+      width: 100% !important;
       max-width: none;
       margin-right: 0;
     }

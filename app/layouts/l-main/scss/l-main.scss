@@ -17,7 +17,7 @@
     margin-right: 30px;
   }
   @include element(content-item) {
-    flex-shrink: 0 !important;
+    flex-shrink: 1 !important;
     margin-bottom: 30px;
     @include mix(b-pagination) {
       margin-top: 60px;
@@ -28,7 +28,7 @@
     width: 300px;
   }
   @include element(sidebar-item) {
-    flex-shrink: 0 !important;
+    flex-shrink: 1 !important;
     margin-bottom: 45px;
   }
   // full width

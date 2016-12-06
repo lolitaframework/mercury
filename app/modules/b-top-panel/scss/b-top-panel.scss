@@ -1,0 +1,39 @@
+@import "../../../base/core/mixins";
+//
+//*****************************************************************************
+// b-top-panel
+//*****************************************************************************
+
+@include block(b-top-panel) {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  background-color: #f2f2f2;
+  @include element(meta) {
+    min-height: 19px;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    text-align: center;
+    color: #999191;
+  }
+  @include element(title) {
+    min-height: 33px;
+    font-size: 24px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    text-align: center;
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-transform: uppercase;
+  }
+}
+

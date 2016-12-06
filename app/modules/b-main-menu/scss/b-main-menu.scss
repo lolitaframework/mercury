@@ -10,6 +10,7 @@
   @include modifier(footer) {
     @include element(items) {
       display: flex;
+      flex: 1;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -41,6 +42,7 @@
     @include element(link) {
       transition: 0.2s all;
       display: flex;
+      flex: 1;
       flex-flow: column wrap;
       justify-content: center;
       text-align: center;
@@ -64,6 +66,7 @@
     @include modifier(header) {
       @include element(items) {
         display: flex;
+        flex: 1;
         list-style: none;
         margin: 0;
         padding: 0;
@@ -89,6 +92,7 @@
       }
       @include element(link) {
         display: flex;
+        flex: 1;
         flex-flow: column wrap;
         justify-content: center;
         text-align: center;

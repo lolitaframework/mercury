@@ -9,6 +9,7 @@
 @include block(b-subscribe-and-follow) {
   width: 100%;
   display: flex;
+  flex: 1;
   flex-flow: column nowrap;
   align-items: center;
   @include mix(c-aside-title, title) {

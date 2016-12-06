@@ -8,6 +8,7 @@
 //
 @include block(b-newsletter) {
   display: flex;
+  flex: 1;
   flex-flow: column nowrap;
   align-items: center;
   width: 100%;
@@ -27,6 +28,7 @@
   }
   @include element(form) {
     display: flex;
+    flex: 1;
     flex-flow: column nowrap;
     align-items: center;
     width: 100%;

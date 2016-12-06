@@ -10,12 +10,14 @@
     padding: 30px 0;
     & .left {
       display: flex;
+      flex: 1;
       flex-flow: column wrap;
       align-items: flex-start;
       justify-content: flex-start;
     }
     & .right {
       display: flex;
+      flex: 1;
       flex-flow: column wrap;
       align-items: flex-end;
       justify-content: flex-end;

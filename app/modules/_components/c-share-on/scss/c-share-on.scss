@@ -124,6 +124,7 @@
         margin: 0;
         padding: 0;
         display: flex;
+        flex: 1;
         justify-content: center;
       }
       @include element(item) {
@@ -187,6 +188,7 @@
       margin: 0;
       padding: 0;
       display: flex;
+      flex: 1;
       justify-content: center;
     }
     @include element(item) {

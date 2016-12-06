@@ -56,6 +56,7 @@
   @include modifier(grid) {
     @include element(inner) {
       display: flex;
+      flex: 1;
       flex-flow: column nowrap;
       justify-content: center;
     }
@@ -72,6 +73,7 @@
   @include media-breakpoint-down(md) {
     @include element(inner) {
       display: flex;
+      flex: 1;
       flex-flow: column nowrap;
       justify-content: center;
     }

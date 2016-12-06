@@ -7,6 +7,7 @@
 //
 @include block(b-banner-spot) {
   display: flex;
+  flex: 1;
   flex-flow: column nowrap;
   align-items: center;
   @include element(outer) {
@@ -25,6 +26,7 @@
     right: 20px;
     border: 1px solid #fff;
     display: flex;
+    flex: 1;
     align-content: center;
     align-items: center;
     text-align: center;

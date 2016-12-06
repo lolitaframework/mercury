@@ -23,11 +23,11 @@
       width: 1px;
       height: 16px;
       background-color: #0088CC;
-      vertical-align: middle;
-      margin-left: 5px;
+      vertical-align: baseline;
+      margin-left: 6px;
       margin-right: 5px;
       position: relative;
-      top: -4px;
+      top: 4px;
     }
   }
   @include element(link) {

@@ -78,7 +78,7 @@
             background-color: #fff;
             color: #333333;
             @include modifier(has-submenu) {
-              color: #333333;
+              color: #000;
               background: #fff url('../img/arrow_down--black.svg') top 50% right 10px no-repeat;
             }
             @include modifier(search) {

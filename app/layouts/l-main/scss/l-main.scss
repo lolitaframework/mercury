@@ -120,11 +120,11 @@
     @include element(content) {
       max-width: none;
       margin-right: 0;
-      flex-basis: auto;
+      flex-basis: auto !important;
     }
     @include element(sidebar) {
       width: 100%;
-      flex-basis: auto;
+      flex-basis: auto !important;
     }
     @include element(sidebar-item) {
       @include mix(b-categories) {
